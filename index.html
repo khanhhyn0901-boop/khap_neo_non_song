@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KHẮP NẺO NON SÔNG</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ===============================
+         INTRO KHẮP NẺO NON SÔNG
+    ================================ -->
+
+    <div class="welcome-box" id="welcomeBox">
+
+        <div class="welcome-content">
+
+            <div class="welcome-opening">
+
+                <p>ĐI QUA MUÔN DẶM ĐƯỜNG ĐẤT NƯỚC</p>
+
+                <p>NGHE NGÀN CÂU CHUYỆN VỀ QUÊ HƯƠNG</p>
+
+            </div>
+
+            <div class="welcome-title">
+
+                <h1>KHẮP NẺO</h1>
+
+                <h1>NON SÔNG</h1>
+
+                <p class="subtitle">
+                    HÀNH TRÌNH KHÁM PHÁ LỊCH SỬ VÀ VĂN HÓA VIỆT NAM
+                </p>
+
+            </div>
+
+            <button id="startBtn">
+                BẮT ĐẦU
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===============================
+         BẢNG HƯỚNG DẪN
+    ================================ -->
+
+    <div class="guide-box hidden" id="guideBox">
+
+        <h2>HƯỚNG DẪN THAM QUAN</h2>
+
+        <p>
+            🖱️ <b>Click</b> vào các cánh cửa để khám phá từng địa danh
+        </p>
+
+        <p>
+            👀 <b>Quan sát và tìm hiểu</b> các hiện vật, sự kiện lịch sử
+        </p>
+
+        <p>
+            💡 <b>Tương tác</b> với hiện vật để tìm hiểu thêm về sự kiện lịch sử
+        </p>
+
+        <div class="guide-line"></div>
+
+        <p class="quote">
+            Đằng sau mỗi cánh cửa là một trang sử đang chờ được mở ra
+        </p>
+
+        <button id="exploreBtn">
+            THAM QUAN NGAY
+        </button>
+
+    </div>
+
+
+    <!-- ===============================
+         TASKBAR BÊN TRÁI
+    ================================ -->
+
+    <div class="taskbar left-taskbar" id="leftTaskbar">
+
+        <button
+            class="task-btn"
+            id="backBtn"
+            title="Quay lại">
+
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5"></path>
+                <path d="M12 19l-7-7 7-7"></path>
+            </svg>
+
+        </button>
+
+    </div>
+
+
+    <!-- ===============================
+         TASKBAR BÊN PHẢI
+    ================================ -->
+
+    <div class="taskbar right-taskbar" id="rightTaskbar">
+
+        <button
+            class="task-btn scene-btn"
+            id="sceneInfoBtn"
+            title="">
+        </button>
+
+        <button
+            class="task-btn"
+            id="mapsBtn"
+            title="Google Maps">
+
+            <svg viewBox="0 0 24 24">
+
+                <path
+                    d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z">
+                </path>
+
+                <circle
+                    cx="12"
+                    cy="9"
+                    r="2.5">
+                </circle>
+
+            </svg>
+
+        </button>
+
+    </div>
+
+
+    <!-- ===============================
+         KHU VỰC BẢO TÀNG
+    ================================ -->
+
+    <div class="museum" id="museum">
+
+        <img
+            src="bgr.png"
+            class="background"
+            alt="Bảo tàng KHẮP NẺO NON SÔNG">
+
+        <img
+            src="door1-dinh.png"
+            class="door door1"
+            data-name="DINH ĐỘC LẬP"
+            alt="Dinh Độc Lập">
+
+        <img
+            src="door2-bencang.png"
+            class="door door2"
+            data-name="BẾN NHÀ RỒNG"
+            alt="Bến Nhà Rồng">
+
+        <img
+            src="door3-diadao.png"
+            class="door door3"
+            data-name="ĐỊA ĐẠO CỦ CHI"
+            alt="Địa đạo Củ Chi">
+
+    </div>
+
+
+    <!-- ===============================
+         MÀN HÌNH DINH ĐỘC LẬP
+    ================================ -->
+
+    <div class="dinh-scene" id="dinhScene">
+
+        <!-- BACKGROUND DINH ĐỘC LẬP -->
+
+        <img
+            src="dinh.png"
+            class="dinh-background"
+            alt="Dinh Độc Lập">
+
+
+        <!-- ===============================
+             2 KHU THAM QUAN
+        ================================ -->
+
+        <div
+            id="dinhAreas"
+            class="dinh-areas">
+
+            <button
+                class="area-circle"
+                id="area1">
+
+                <span>KHU TRƯNG BÀY</span>
+                <span>CỐ ĐỊNH</span>
+
+            </button>
+
+
+            <button
+                class="area-circle"
+                id="area2">
+
+                <span>KHU SINH HOẠT GIA ĐÌNH TỔNG THỐNG</span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===============================
+         KHU TRƯNG BÀY
+    ================================ -->
+
+    <div
+        class="scroll-scene"
+        id="exhibitScene">
+
+        <div class="scroll-content">
+
+            <div class="scroll-section">
+
+                <div class="scroll-image">
+
+                    <img
+                        src="a.png"
+                        alt="Hiện vật 1">
+
+                </div>
+
+                <div class="scroll-info">
+
+                    <h2>HIỆN VẬT THỨ NHẤT</h2>
+
+                    <p>
+                        Nội dung thông tin về hiện vật thứ nhất.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="scroll-section">
+
+                <div class="scroll-image">
+
+                    <img
+                        src="b.png"
+                        alt="Hiện vật 2">
+
+                </div>
+
+                <div class="scroll-info">
+
+                    <h2>HIỆN VẬT THỨ HAI</h2>
+
+                    <p>
+                        Nội dung thông tin về hiện vật thứ hai.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="scroll-section">
+
+                <div class="scroll-image">
+
+                    <img
+                        src="c.png"
+                        alt="Hiện vật 3">
+
+                </div>
+
+                <div class="scroll-info">
+
+                    <h2>HIỆN VẬT THỨ BA</h2>
+
+                    <p>
+                        Nội dung thông tin về hiện vật thứ ba.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===============================
+         KHU SINH HOẠT
+    ================================ -->
+
+    <div
+        class="scroll-scene"
+        id="familyScene">
+
+        <div class="scroll-content">
+
+            <div class="scroll-section">
+
+                <div class="scroll-image">
+
+                    <img
+                        src="family1.png"
+                        alt="Khu sinh hoạt 1">
+
+                </div>
+
+                <div class="scroll-info">
+
+                    <h2>KHU SINH HOẠT</h2>
+
+                    <p>
+                        Nội dung thông tin về khu sinh hoạt.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="scroll-section">
+
+                <div class="scroll-image">
+
+                    <img
+                        src="family2.png"
+                        alt="Khu sinh hoạt 2">
+
+                </div>
+
+                <div class="scroll-info">
+
+                    <h2>KHÔNG GIAN SINH HOẠT</h2>
+
+                    <p>
+                        Nội dung thông tin về không gian sinh hoạt.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="scroll-section">
+
+                <div class="scroll-image">
+
+                    <img
+                        src="family3.png"
+                        alt="Khu sinh hoạt 3">
+
+                </div>
+
+                <div class="scroll-info">
+
+                    <h2>ĐỜI SỐNG GIA ĐÌNH</h2>
+
+                    <p>
+                        Nội dung thông tin về đời sống gia đình.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===============================
+         GOOGLE MAPS
+    ================================ -->
+
+    <div
+        class="modal-overlay"
+        id="mapsModal">
+
+        <div class="map-box">
+
+            <button
+                class="close-modal"
+                id="closeMaps"
+                title="Đóng">
+
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 6l12 12"></path>
+                    <path d="M18 6L6 18"></path>
+                </svg>
+
+            </button>
+
+
+            <div class="map-header">
+
+                <div class="notice-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path
+                            d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z">
+                        </path>
+
+                        <circle
+                            cx="12"
+                            cy="9"
+                            r="2.5">
+                        </circle>
+
+                    </svg>
+
+                </div>
+
+
+                <div>
+
+                    <h2>BẢN ĐỒ THAM QUAN</h2>
+
+                    <p>
+                        Khám phá vị trí các địa danh lịch sử
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="map-container">
+
+                <iframe
+                    id="googleMap"
+                    src="https://www.google.com/maps?q=Dinh+Độc+Lập,+Ho+Chi+Minh+City&output=embed"
+                    loading="lazy"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===============================
+         BẢNG THÔNG TIN
+    ================================ -->
+
+    <div
+        class="info-modal"
+        id="infoModal">
+
+        <div class="info-paper">
+
+            <button
+                class="info-close"
+                id="closeInfo">
+
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 6l12 12"></path>
+                    <path d="M18 6L6 18"></path>
+                </svg>
+
+            </button>
+
+
+            <div class="paper-header">
+
+                <p class="paper-small-title">
+                    KHẮP NẺO NON SÔNG
+                </p>
+
+                <h1 id="infoTitle">
+                    DINH ĐỘC LẬP
+                </h1>
+
+                <div class="paper-line"></div>
+
+                <p class="paper-date">
+                    GÓC TƯ LIỆU LỊCH SỬ
+                </p>
+
+            </div>
+
+
+            <div
+                class="paper-content"
+                id="infoContent">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===============================
+         JAVASCRIPT
+    ================================ -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
