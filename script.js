@@ -16,12 +16,17 @@ const exploreBtn = document.getElementById("exploreBtn");
 
 const museum = document.getElementById("museum");
 
-/* DINH SCENE */
+
+/* =====================================
+   DINH SCENE
+===================================== */
+
 const dinhScene = document.getElementById("dinhScene");
 const dinhAreas = document.getElementById("dinhAreas");
 
 const area1 = document.getElementById("area1");
 const area2 = document.getElementById("area2");
+
 
 /* =====================================
    SCROLL SCENE
@@ -33,7 +38,18 @@ const familyScene = document.getElementById("familyScene");
 let currentScrollScene = null;
 
 
-/* TASKBAR */
+/* =====================================
+   BẾN NHÀ RỒNG
+===================================== */
+
+const benScene = document.getElementById("benScene");
+const benExploreBtn = document.getElementById("benExploreBtn");
+
+
+/* =====================================
+   TASKBAR
+===================================== */
+
 const backBtn = document.getElementById("backBtn");
 const sceneInfoBtn = document.getElementById("sceneInfoBtn");
 
@@ -182,6 +198,20 @@ exploreBtn.addEventListener("click", function () {
 
     dinhScene.style.display = "none";
 
+    /* ĐÓNG BẾN NẾU ĐANG MỞ */
+
+    if (benScene) {
+
+        benScene.classList.remove("active");
+
+    }
+
+    if (benExploreBtn) {
+
+        benExploreBtn.style.display = "none";
+
+    }
+
     updateTaskbar();
 
     setupDoors();
@@ -312,7 +342,7 @@ function openScene(sceneName) {
 
 
         /* =================================
-           NẾU LÀ DINH ĐỘC LẬP
+           DINH ĐỘC LẬP
         ================================= */
 
         if (sceneName === "dinh") {
@@ -320,6 +350,15 @@ function openScene(sceneName) {
             /* ẨN LOBBY */
 
             museum.style.display = "none";
+
+
+            /* ẨN BẾN */
+
+            if (benScene) {
+
+                benScene.classList.remove("active");
+
+            }
 
 
             /* HIỆN DINH */
@@ -354,15 +393,77 @@ function openScene(sceneName) {
 
 
             return;
+
         }
 
 
         /* =================================
-           CÁC CẢNH KHÁC
-           BẾN NHÀ RỒNG / ĐỊA ĐẠO
+           BẾN NHÀ RỒNG
+        ================================= */
+
+        if (sceneName === "ben") {
+
+            /* ẨN LOBBY */
+
+            museum.style.display = "none";
+
+
+            /* ẨN DINH */
+
+            dinhScene.style.display = "none";
+
+
+            /* HIỆN BẾN */
+
+            benScene.classList.add("active");
+
+
+            /* ẨN CỤC TRÒN LÚC ĐẦU */
+
+            benExploreBtn.style.display = "none";
+
+
+            /* CẬP NHẬT TASKBAR */
+
+            updateTaskbar();
+
+
+            document.body.classList.remove("fade-out");
+
+
+            /* HIỆN NOTICE */
+
+            setTimeout(() => {
+
+                showNotice(
+                    "BẠN ĐANG Ở BẾN NHÀ RỒNG",
+                    "Chào mừng bạn đến với khu trưng bày Bến Nhà Rồng.",
+                    "BẮT ĐẦU KHÁM PHÁ"
+                );
+
+            }, 500);
+
+
+            return;
+
+        }
+
+
+        /* =================================
+           ĐỊA ĐẠO CỦ CHI
         ================================= */
 
         dinhScene.style.display = "none";
+
+
+        /* ĐÓNG BẾN */
+
+        if (benScene) {
+
+            benScene.classList.remove("active");
+
+        }
+
 
         museum.style.display = "block";
 
@@ -374,18 +475,6 @@ function openScene(sceneName) {
                 <img
                     src="${scenes[sceneName].image}"
                     alt="${scenes[sceneName].name}">
-
-
-                ${
-                    sceneName === "ben"
-                    ? `
-                        <button
-                            class="scene-hotspot ben-hotspot"
-                            id="benHotspot">
-                        </button>
-                    `
-                    : ""
-                }
 
 
                 ${
@@ -413,23 +502,12 @@ function openScene(sceneName) {
 
 
         /* =================================
-           HIỆN BẢNG THÔNG BÁO
+           THÔNG BÁO ĐỊA ĐẠO
         ================================= */
 
         setTimeout(() => {
 
-            if (sceneName === "ben") {
-
-                showNotice(
-                    "BẠN ĐANG Ở BẾN NHÀ RỒNG",
-                    "Chào mừng bạn đến với Bến Nhà Rồng.",
-                    "BẮT ĐẦU KHÁM PHÁ"
-                );
-
-            }
-
-
-            else if (sceneName === "diaDao") {
+            if (sceneName === "diaDao") {
 
                 showNotice(
                     "BẠN ĐANG Ở ĐỊA ĐẠO CỦ CHI",
@@ -443,26 +521,7 @@ function openScene(sceneName) {
 
 
         /* =================================
-           NÚT BẾN NHÀ RỒNG
-        ================================= */
-
-        if (sceneName === "ben") {
-
-            const benHotspot =
-                document.getElementById("benHotspot");
-
-
-            benHotspot.addEventListener("click", () => {
-
-                openNextScene("ben");
-
-            });
-
-        }
-
-
-        /* =================================
-           NÚT ĐỊA ĐẠO CỦ CHI
+           NÚT ĐỊA ĐẠO
         ================================= */
 
         if (sceneName === "diaDao") {
@@ -471,11 +530,15 @@ function openScene(sceneName) {
                 document.getElementById("diaDaoHotspot");
 
 
-            diaDaoHotspot.addEventListener("click", () => {
+            if (diaDaoHotspot) {
 
-                openNextScene("diaDao");
+                diaDaoHotspot.addEventListener("click", () => {
 
-            });
+                    openNextScene("diaDao");
+
+                });
+
+            }
 
         }
 
@@ -498,6 +561,9 @@ function openNextScene(sceneName) {
 
         const scene =
             document.querySelector(".scene");
+
+
+        if (!scene) return;
 
 
         scene.innerHTML = `
@@ -567,11 +633,24 @@ function showNotice(title, text, buttonText) {
             notice.remove();
 
 
-            /* HIỆN 2 KHU DINH */
+            /* =================================
+               DINH
+            ================================= */
 
             if (currentScene === "dinh") {
 
                 showDinhAreas();
+
+            }
+
+
+            /* =================================
+               BẾN NHÀ RỒNG
+            ================================= */
+
+            if (currentScene === "ben") {
+
+                benExploreBtn.style.display = "flex";
 
             }
 
@@ -634,7 +713,16 @@ function updateTaskbar() {
 }
 
 
+/* =====================================
+   NÚT BACK
+===================================== */
+
 backBtn.addEventListener("click", function () {
+
+
+    /* =================================
+       ĐANG Ở KHU CON CỦA DINH
+    ================================= */
 
     if (currentScrollScene) {
 
@@ -650,6 +738,10 @@ backBtn.addEventListener("click", function () {
 
     }
 
+
+    /* =================================
+       ĐANG Ở ĐỊA DANH
+    ================================= */
 
     if (
         currentScene === "dinh" ||
@@ -680,7 +772,17 @@ function goBackToLobby() {
     dinhScene.style.display = "none";
 
 
-    /* ẨN 2 KHU */
+    /* ĐÓNG BẾN */
+
+    benScene.classList.remove("active");
+
+
+    /* ẨN CỤC BẾN */
+
+    benExploreBtn.style.display = "none";
+
+
+    /* ẨN 2 KHU DINH */
 
     dinhAreas.style.display = "none";
 
@@ -693,7 +795,6 @@ function goBackToLobby() {
     /* HIỆN LẠI LOBBY */
 
     museum.style.display = "block";
-
 
     museum.classList.remove("hidden");
 
@@ -1108,6 +1209,22 @@ area2.addEventListener("click", () => {
 
 
 /* =====================================
+   BẾN - CỤC TRÒN NHÀ TRƯNG BÀY
+===================================== */
+
+benExploreBtn.addEventListener("click", () => {
+
+    /*
+       Hiện tại chỉ xử lý hiệu ứng click.
+       Scene tiếp theo mình có thể gắn vào đây.
+    */
+
+    benExploreBtn.classList.add("clicked");
+
+});
+
+
+/* =====================================
    KHỞI TẠO
 ===================================== */
 
@@ -1127,8 +1244,26 @@ if (dinhAreas) {
 }
 
 
+if (benScene) {
+
+    benScene.classList.remove("active");
+
+}
+
+
+if (benExploreBtn) {
+
+    benExploreBtn.style.display = "none";
+
+}
+
+
 currentScene = "lobby";
 
+
+/* =====================================
+   OBSERVER CHO SCROLL
+===================================== */
 
 const scrollSections =
     document.querySelectorAll(".scroll-section");
