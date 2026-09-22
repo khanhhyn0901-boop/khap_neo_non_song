@@ -2172,3 +2172,45 @@ body.fade-out {
 .right-taskbar {
     z-index: 10000;
 }
+.ben-area {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
+}
+/* ===============================
+   BẾN NHÀ RỒNG
+================================ */
+
+.ben-scene {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    z-index: 500;
+}
+
+.ben-scene.active {
+    display: block;
+}
+
+.ben-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.ben-area {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
