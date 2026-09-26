@@ -706,8 +706,6 @@ body.fade-out {
 ================================================== */
 
 .welcome-box.hidden {
-    display: block;
-
     pointer-events: none;
 
     animation:
@@ -2213,4 +2211,3429 @@ body.fade-out {
     justify-content: center;
     align-items: center;
     z-index: 2;
+}
+/* ==================================================
+   GAME DINH ĐỘC LẬP
+   KHÔI PHỤC TRANG SỬ
+================================================== */
+
+.history-game {
+    position: fixed;
+    inset: 0;
+    z-index: 15000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        rgba(30, 22, 15, 0.55);
+
+    backdrop-filter: blur(5px);
+}
+
+.history-game.show {
+    display: flex;
+}
+
+
+/* ==================================================
+   GAME BOX
+================================================== */
+
+.game-box {
+    position: relative;
+
+    width: min(1050px, 92vw);
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    padding:
+        35px 45px 30px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(255,255,255,0.9),
+            transparent 45%
+        ),
+        var(--box-bg);
+
+    border:
+        2px solid var(--box-border);
+
+    border-radius:
+        var(--box-radius);
+
+    box-shadow:
+        var(--box-shadow);
+
+    animation:
+        gameOpen
+        0.4s
+        cubic-bezier(.16,1,.3,1);
+}
+
+@keyframes gameOpen {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(25px)
+            scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* ==================================================
+   CLOSE
+================================================== */
+
+.game-close {
+
+    position: absolute;
+
+    top: 13px;
+    right: 13px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 5;
+}
+
+.game-close:hover {
+    background: #eadfcf;
+}
+
+.game-close svg {
+
+    width: 20px;
+    height: 20px;
+
+    fill: none;
+
+    stroke: #7b1e1e;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+.game-header {
+
+    text-align: center;
+
+    padding:
+        5px 35px 18px;
+}
+
+.game-small-title {
+
+    margin-bottom: 7px;
+
+    color:
+        var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.game-header h1 {
+
+    margin: 0;
+
+    color:
+        var(--box-red);
+
+    font-family:
+        "DT Phudu",
+        sans-serif;
+
+    font-size: 39px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+}
+
+.game-header p {
+
+    margin:
+        10px auto 0;
+
+    max-width: 650px;
+
+    color:
+        var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* ==================================================
+   KHU GAME
+================================================== */
+
+.newspaper-game {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 50px;
+
+    margin-top: 10px;
+}
+
+
+/* ==================================================
+   BẢNG 3x3
+================================================== */
+
+.newspaper-slots {
+
+    width: 390px;
+    height: 260px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    grid-template-rows:
+        repeat(3, 1fr);
+
+    gap: 2px;
+
+    padding: 4px;
+
+    background:
+        #b99561;
+
+    border:
+        2px solid var(--box-border);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.16);
+}
+
+
+/* ==================================================
+   Ô TRỐNG
+================================================== */
+
+.newspaper-slot {
+
+    position: relative;
+
+    background:
+        rgba(255,255,255,.45);
+
+    border:
+        1px dashed
+        rgba(118,44,39,.45);
+
+    overflow: hidden;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+.newspaper-slot.drag-over {
+
+    background:
+        rgba(169,79,66,.18);
+
+    transform:
+        scale(.97);
+}
+
+.newspaper-slot.filled {
+
+    border-style: solid;
+
+    background:
+        #f7eedc;
+}
+
+
+/* ==================================================
+   MẢNH BÁO
+================================================== */
+
+.newspaper-pieces {
+
+    width: 390px;
+    height: 260px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    grid-template-rows:
+        repeat(3, 1fr);
+
+    gap: 7px;
+
+    padding: 8px;
+
+    background:
+        rgba(255,255,255,.35);
+
+    border:
+        1px solid
+        rgba(169,79,66,.4);
+
+    border-radius: 12px;
+}
+
+
+/* ==================================================
+   TỪNG MẢNH
+================================================== */
+
+.newspaper-piece {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+
+    border:
+        1px solid
+        rgba(118,44,39,.35);
+
+    background-image:
+        url("./bao.png");
+
+    background-repeat:
+        no-repeat;
+
+    background-size:
+        300% 300%;
+
+    cursor:
+        grab;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        opacity .2s ease;
+}
+
+.newspaper-piece:hover {
+
+    transform:
+        scale(1.04)
+        rotate(1deg);
+
+    box-shadow:
+        0 7px 15px
+        rgba(80,40,20,.18);
+
+    z-index: 2;
+}
+
+.newspaper-piece:active {
+    cursor: grabbing;
+}
+
+.newspaper-piece.selected {
+
+    transform:
+        scale(1.06);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(169,79,66,.35);
+}
+
+
+/*
+   9 VỊ TRÍ ẢNH
+
+   0 1 2
+   3 4 5
+   6 7 8
+*/
+
+.newspaper-piece[data-piece="0"] {
+    background-position: 0% 0%;
+}
+
+.newspaper-piece[data-piece="1"] {
+    background-position: 50% 0%;
+}
+
+.newspaper-piece[data-piece="2"] {
+    background-position: 100% 0%;
+}
+
+.newspaper-piece[data-piece="3"] {
+    background-position: 0% 50%;
+}
+
+.newspaper-piece[data-piece="4"] {
+    background-position: 50% 50%;
+}
+
+.newspaper-piece[data-piece="5"] {
+    background-position: 100% 50%;
+}
+
+.newspaper-piece[data-piece="6"] {
+    background-position: 0% 100%;
+}
+
+.newspaper-piece[data-piece="7"] {
+    background-position: 50% 100%;
+}
+
+.newspaper-piece[data-piece="8"] {
+    background-position: 100% 100%;
+}
+
+
+/* ==================================================
+   MẢNH ĐÃ ĐẶT
+================================================== */
+
+.newspaper-slot .newspaper-piece {
+    width: 100%;
+    height: 100%;
+    border: none;
+    cursor: grab;
+    transform: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.newspaper-slot .newspaper-piece:active {
+    cursor: grabbing;
+}
+
+.newspaper-slot .newspaper-piece:hover {
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* ==================================================
+   PHẦN DƯỚI
+================================================== */
+
+.game-bottom {
+
+    text-align: center;
+
+    margin-top: 18px;
+}
+
+.newspaper-progress {
+
+    display: inline-block;
+
+    min-width: 65px;
+
+    padding:
+        5px 13px;
+
+    border:
+        1px solid var(--box-gold);
+
+    border-radius:
+        999px;
+
+    background:
+        #f3e6c8;
+
+    color:
+        var(--box-red);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.game-message {
+
+    min-height: 22px;
+
+    margin:
+        8px 0 12px;
+
+    color:
+        var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 13px;
+}
+
+.check-game-btn {
+
+    padding:
+        12px 27px;
+
+    border:
+        1px solid var(--box-red);
+
+    border-radius:
+        999px;
+
+    background:
+        var(--box-red);
+
+    color:
+        white;
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.check-game-btn:hover:not(:disabled) {
+
+    background:
+        #762c27;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(127,48,41,.22);
+}
+
+.check-game-btn:disabled {
+
+    opacity: .4;
+
+    cursor:
+        not-allowed;
+}
+
+/* ==================================================
+   CÂU CHUYỆN LỊCH SỬ
+================================================== */
+
+.history-story {
+    position: fixed;
+    inset: 0;
+    z-index: 16000;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    background: rgba(30, 22, 15, 0.42);
+}
+
+.history-story.show {
+    display: flex;
+}
+
+/* ==================================================
+   KHUNG CÂU CHUYỆN LỊCH SỬ
+================================================== */
+
+.story-box {
+    position: relative;
+
+    width: min(680px, 88vw);
+    max-height: 82vh;
+
+    padding: 38px 48px 32px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(255, 255, 255, 0.9),
+            transparent 45%
+        ),
+        var(--box-bg);
+
+    /* KHUNG NGOÀI */
+    border: 3px solid var(--box-gold);
+
+    border-radius: var(--box-radius);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.22),
+        0 0 0 1px rgba(168, 121, 53, 0.25);
+
+    text-align: center;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    animation:
+        storyOpen
+        0.4s
+        cubic-bezier(.16,1,.3,1);
+
+    z-index: 1;
+}
+
+
+/* ==========================================
+   KHUNG VÀNG BÊN TRONG
+========================================== */
+
+.story-box::before {
+    content: "";
+
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+    border: 1.5px solid var(--box-gold);
+
+    border-radius: 13px;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+/* ==================================================
+   NHÃN NHỎ
+================================================== */
+
+.story-label {
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 8px;
+
+    color: var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+/* ==================================================
+   TIÊU ĐỀ
+================================================== */
+
+.story-box h1 {
+    position: relative;
+    z-index: 1;
+
+    margin: 0;
+
+    color: var(--box-red);
+
+    font-family:
+        "DT Phudu",
+        sans-serif;
+
+    font-size: 36px;
+    font-weight: 400;
+
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+/* ==================================================
+   ĐƯỜNG KẺ
+================================================== */
+
+.story-line {
+    position: relative;
+    z-index: 1;
+
+    width: 70px;
+    height: 2px;
+
+    margin: 14px auto 20px;
+
+    background: var(--box-gold);
+}
+
+/* ==================================================
+   NỘI DUNG
+================================================== */
+
+.story-box p {
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 13px;
+
+    color: var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 14px;
+    line-height: 1.75;
+
+    text-align: justify;
+}
+
+/* ==================================================
+   MỐC THỜI GIAN
+================================================== */
+
+.story-highlight {
+    position: relative;
+    z-index: 1;
+
+    margin: 16px 0;
+
+    color: var(--box-red);
+
+    font-family:
+        "DT Phudu",
+        sans-serif;
+
+    font-size: 32px;
+    font-weight: 400;
+
+    letter-spacing: 4px;
+
+    text-align: center;
+}
+
+/* ==================================================
+   NÚT
+================================================== */
+
+.story-buttons {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.story-btn {
+    padding: 11px 23px;
+
+    border: 1px solid var(--box-red);
+    border-radius: 999px;
+
+    background: var(--box-red);
+    color: white;
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.story-btn:hover {
+    transform: translateY(-2px);
+
+    background: #762c27;
+
+    box-shadow:
+        0 7px 18px
+        rgba(127,48,41,.2);
+}
+
+.story-btn.secondary {
+    background: transparent;
+    color: var(--box-red);
+}
+
+.story-btn.secondary:hover {
+    background: #eadfcf;
+    box-shadow: none;
+}
+/* ==================================================
+   2 NÚT CÂU CHUYỆN LỊCH SỬ
+   KIỂU KHUNG GIỐNG NOTICE
+================================================== */
+
+.history-story-actions {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+
+    margin-top: 24px;
+}
+
+.history-story-actions button {
+    position: relative;
+
+    padding: 13px 30px;
+
+    border: 1px solid var(--box-red);
+    border-radius: 999px;
+
+    background: var(--box-red);
+
+    color: white;
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.history-story-actions button:hover {
+    background: #762c27;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(127, 48, 41, 0.22);
+}
+/* ==================================================
+   THANH CUỘN
+================================================== */
+
+.story-box::-webkit-scrollbar {
+    width: 6px;
+}
+
+.story-box::-webkit-scrollbar-track {
+    background: #eadfc5;
+    border-radius: 10px;
+}
+
+.story-box::-webkit-scrollbar-thumb {
+    background: var(--box-border);
+    border-radius: 10px;
+}
+
+/* ==================================================
+   ANIMATION
+================================================== */
+
+@keyframes storyOpen {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 800px) {
+
+    .history-story {
+        padding: 20px;
+    }
+
+    .story-box {
+        width: 92vw;
+        max-height: 86vh;
+
+        padding:
+            32px 24px 25px;
+    }
+
+    .story-box h1 {
+        font-size: 29px;
+    }
+
+    .story-box p {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .story-highlight {
+        font-size: 27px;
+        letter-spacing: 3px;
+    }
+
+    .story-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .story-btn {
+        width: 100%;
+    }
+}
+/* =====================================
+   VIDEO LỊCH SỬ
+===================================== */
+
+.history-video {
+    position: fixed;
+    inset: 0;
+    z-index: 17000;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    background: rgba(30, 22, 15, 0.55);
+}
+
+.history-video.show {
+    display: flex;
+}
+
+
+/* KHUNG VIDEO */
+
+.video-box {
+    position: relative;
+
+    width: min(900px, 92vw);
+    max-height: 90vh;
+
+    padding: 38px 42px 42px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(255, 255, 255, 0.9),
+            transparent 45%
+        ),
+        var(--box-bg);
+
+    border: 3px solid var(--box-gold);
+    border-radius: var(--box-radius);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(168, 121, 53, 0.25);
+
+    text-align: center;
+
+    overflow-y: auto;
+
+    animation:
+        storyOpen
+        0.4s
+        cubic-bezier(.16,1,.3,1);
+}
+
+
+/* KHUNG VIỀN VÀNG BÊN TRONG */
+
+.video-box::before {
+    content: "";
+
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+    border: 1.5px solid var(--box-gold);
+    border-radius: 13px;
+
+    pointer-events: none;
+}
+
+
+/* TIÊU ĐỀ */
+
+.video-box .game-eyebrow {
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 5px;
+}
+
+.video-box h1 {
+    position: relative;
+    z-index: 1;
+
+    margin: 0 0 22px;
+
+    color: var(--box-title);
+
+    font-family: "DT Phudu", sans-serif;
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 900;
+}
+
+
+/* VIDEO */
+
+.video-container {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border: 2px solid var(--box-gold);
+    border-radius: 12px;
+
+    background: #000;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.video-container video {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    max-height: 65vh;
+
+    object-fit: contain;
+}
+
+
+/* NÚT ĐÓNG */
+
+.video-close {
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    z-index: 5;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid var(--box-red);
+    border-radius: 50%;
+
+    background: var(--box-red);
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.video-close:hover {
+    transform: scale(1.06);
+    background: #762c27;
+}
+
+.video-close svg {
+    width: 18px;
+    height: 18px;
+
+    fill: none;
+}
+
+.video-close path {
+    stroke: white;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 600px) {
+
+    .history-video {
+        padding: 15px;
+    }
+
+    .video-box {
+        width: 94vw;
+
+        padding:
+            35px
+            18px
+            22px;
+    }
+
+    .video-box h1 {
+        font-size: 22px;
+        padding: 0 20px;
+    }
+
+    .video-container video {
+        max-height: 55vh;
+    }
+
+    .video-close {
+        top: 12px;
+        right: 12px;
+
+        width: 34px;
+        height: 34px;
+    }
+}
+/* =====================================
+   NGUỒN VIDEO
+===================================== */
+
+.video-source {
+    position: relative;
+    z-index: 1;
+
+    margin-top: 8px;
+
+    text-align: left;
+
+    color: #806b5c;
+
+    font-family: "Noto Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    font-style: italic;
+
+    opacity: 0.85;
+}
+/* =====================================
+   NOTICE HOÀN THÀNH DINH ĐỘC LẬP
+===================================== */
+
+.dinh-complete-notice {
+    position: fixed;
+    inset: 0;
+
+    z-index: 18000;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    background: rgba(30, 22, 15, 0.42);
+}
+
+.dinh-complete-notice.show {
+    display: flex;
+}
+
+
+/* KHUNG NOTICE */
+
+.dinh-complete-box {
+    position: relative;
+
+    width: min(620px, 88vw);
+
+    padding: 42px 48px 36px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(255, 255, 255, 0.9),
+            transparent 45%
+        ),
+        var(--box-bg);
+
+    border: 3px solid var(--box-gold);
+
+    border-radius: var(--box-radius);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.22),
+        0 0 0 1px rgba(168, 121, 53, 0.25);
+
+    text-align: center;
+
+    animation:
+        storyOpen
+        0.4s
+        cubic-bezier(.16,1,.3,1);
+}
+
+
+/* VIỀN VÀNG BÊN TRONG */
+
+.dinh-complete-box::before {
+    content: "";
+
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+    border: 1.5px solid var(--box-gold);
+
+    border-radius: 13px;
+
+    pointer-events: none;
+}
+
+
+/* TIÊU ĐỀ */
+
+.dinh-complete-box .game-eyebrow,
+.dinh-complete-box h1,
+.dinh-complete-box .dinh-complete-text,
+.dinh-complete-actions {
+    position: relative;
+    z-index: 1;
+}
+
+.dinh-complete-box h1 {
+    margin: 8px 0 16px;
+
+    color: var(--box-title);
+
+    font-family: "DT Phudu", sans-serif;
+
+    font-size: clamp(23px, 3vw, 34px);
+
+    line-height: 1.15;
+}
+
+
+/* NỘI DUNG */
+
+.dinh-complete-text {
+    max-width: 500px;
+
+    margin: 0 auto;
+
+    color: var(--box-text);
+
+    font-family: "Noto Sans", sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* HAI BUTTON */
+
+.dinh-complete-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.dinh-complete-actions button {
+    padding: 11px 23px;
+
+    border: 1px solid var(--box-red);
+
+    border-radius: 999px;
+
+    background: var(--box-red);
+
+    color: white;
+
+    font-family: "Noto Sans", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.dinh-complete-actions button:hover {
+    transform: translateY(-2px);
+
+    background: #762c27;
+
+    box-shadow:
+        0 7px 18px rgba(127, 48, 41, 0.2);
+}
+
+
+/* BUTTON TIẾP TỤC */
+
+.dinh-complete-actions button:last-child {
+    background: transparent;
+
+    color: var(--box-red);
+}
+
+.dinh-complete-actions button:last-child:hover {
+    background: #eadfcf;
+
+    box-shadow: none;
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 600px) {
+
+    .dinh-complete-notice {
+        padding: 15px;
+    }
+
+    .dinh-complete-box {
+        width: 94vw;
+
+        padding:
+            38px
+            20px
+            28px;
+    }
+
+    .dinh-complete-box h1 {
+        font-size: 23px;
+    }
+
+    .dinh-complete-text {
+        font-size: 13px;
+    }
+
+    .dinh-complete-actions {
+        flex-direction: column;
+
+        gap: 9px;
+    }
+
+    .dinh-complete-actions button {
+        width: 100%;
+    }
+}
+/* ==================================================
+   GAME BẾN NHÀ RỒNG
+   GIẢI MẬT THƯ ANH BA
+================================================== */
+
+/* ==================================================
+   KHUNG GAME BẾN
+================================================== */
+
+.ben-history-game {
+    z-index: 15000;
+}
+
+.ben-game-box {
+    width: min(1050px, 92vw);
+    max-height: 92vh;
+
+    padding:
+        35px 45px 30px;
+
+    overflow-y: auto;
+}
+
+
+/* ==================================================
+   HEADER GAME BẾN
+================================================== */
+
+.ben-game-box .game-header {
+    text-align: center;
+
+    padding:
+        5px 35px 18px;
+}
+
+.ben-game-box .game-eyebrow {
+    margin-bottom: 7px;
+
+    color: var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.ben-game-box .game-header h1 {
+    margin: 0;
+
+    color: var(--box-red);
+
+    font-family:
+        "DT Phudu",
+        sans-serif;
+
+    font-size: 39px;
+    font-weight: 400;
+
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.ben-game-box .game-header > p {
+    margin:
+        10px auto 0;
+
+    max-width: 650px;
+
+    color: var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* ==================================================
+   NHIỆM VỤ
+================================================== */
+
+.ben-game-intro {
+
+    width: 100%;
+
+    margin:
+        5px auto 18px;
+
+    padding:
+        14px 20px;
+
+    border:
+        1px solid rgba(169, 79, 66, 0.35);
+
+    border-radius: 12px;
+
+    background:
+        rgba(169, 79, 66, 0.06);
+
+    text-align: center;
+}
+
+.ben-game-intro span {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--box-red);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.ben-game-intro p {
+
+    margin: 0;
+
+    color: var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* ==================================================
+   TIẾN ĐỘ
+================================================== */
+
+.ben-progress {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+.ben-progress span {
+
+    color: var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.ben-progress strong {
+
+    min-width: 55px;
+
+    padding:
+        5px 12px;
+
+    border:
+        1px solid var(--box-gold);
+
+    border-radius: 999px;
+
+    background:
+        #f3e6c8;
+
+    color:
+        var(--box-red);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* ==================================================
+   GRID 4 MANH MỐI
+================================================== */
+
+.ben-clue-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 14px;
+
+    width: 100%;
+}
+
+
+/* ==================================================
+   CARD MANH MỐI
+================================================== */
+
+.ben-clue-card {
+
+    position: relative;
+
+    min-height: 215px;
+
+    padding:
+        22px 15px 18px;
+
+    border:
+        1px solid rgba(169, 79, 66, 0.45);
+
+    border-radius: 14px;
+
+    background:
+        #f8f0df;
+
+    color: var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease,
+        border-color .25s ease;
+}
+
+.ben-clue-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    background:
+        #f5e8ce;
+
+    border-color:
+        var(--box-gold);
+
+    box-shadow:
+        0 10px 25px rgba(80, 40, 20, 0.13);
+}
+
+
+/* ==================================================
+   SỐ THỨ TỰ
+================================================== */
+
+.ben-clue-number {
+
+    position: absolute;
+
+    top: 10px;
+    left: 12px;
+
+    color:
+        var(--box-gold);
+
+    font-family:
+        "DT Phudu",
+        sans-serif;
+
+    font-size: 15px;
+}
+
+
+/* ==================================================
+   ICON
+================================================== */
+
+.ben-clue-icon {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 52px;
+    height: 52px;
+
+    margin:
+        10px auto 12px;
+
+    border:
+        1px solid var(--box-gold);
+
+    border-radius: 50%;
+
+    background:
+        #f3e6c8;
+
+    font-size: 22px;
+}
+
+
+/* ==================================================
+   TIÊU ĐỀ CARD
+================================================== */
+
+.ben-clue-title {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color:
+        var(--box-red);
+
+    font-family:
+        "DT Phudu",
+        sans-serif;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    letter-spacing: 1px;
+}
+
+
+/* ==================================================
+   MÔ TẢ CARD
+================================================== */
+
+.ben-clue-text {
+
+    display: block;
+
+    min-height: 58px;
+
+    color:
+        var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* ==================================================
+   KẾT QUẢ MANH MỐI
+================================================== */
+
+.ben-clue-result {
+
+    display: block;
+
+    margin-top: 10px;
+
+    padding:
+        7px 8px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(169, 79, 66, 0.09);
+
+    color:
+        var(--box-red);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    opacity: 0;
+
+    transform:
+        translateY(5px);
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+}
+
+
+/* Khi đã tìm được manh mối */
+
+.ben-clue-card.found {
+
+    border:
+        2px solid var(--box-gold);
+
+    background:
+        #f3e6c8;
+
+    box-shadow:
+        0 7px 20px rgba(168, 121, 53, 0.14);
+}
+
+.ben-clue-card.found .ben-clue-result {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+.ben-clue-card.found .ben-clue-number {
+
+    color:
+        var(--box-red);
+}
+
+
+/* ==================================================
+   CHI TIẾT MANH MỐI
+================================================== */
+
+.ben-clue-detail {
+
+    min-height: 82px;
+
+    margin:
+        18px auto 8px;
+
+    padding:
+        13px 20px;
+
+    max-width: 850px;
+
+    border:
+        1px solid rgba(169, 79, 66, 0.3);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 255, 255, 0.38);
+
+    text-align: center;
+}
+
+.ben-clue-detail .game-eyebrow {
+
+    margin-bottom: 5px;
+
+    color:
+        var(--box-red);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.ben-clue-detail p:last-child {
+
+    margin: 0;
+
+    color:
+        var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* ==================================================
+   THÔNG BÁO GAME
+================================================== */
+
+.ben-game-message {
+
+    min-height: 20px;
+
+    margin:
+        7px 0 10px;
+
+    color:
+        var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 12px;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   NÚT GIẢI MẬT THƯ
+================================================== */
+
+.ben-game-box .check-game-btn {
+
+    display: block;
+
+    margin:
+        0 auto;
+
+    padding:
+        12px 28px;
+
+    border:
+        1px solid var(--box-red);
+
+    border-radius: 999px;
+
+    background:
+        var(--box-red);
+
+    color: white;
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.ben-game-box .check-game-btn:hover:not(:disabled) {
+
+    background:
+        #762c27;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(127, 48, 41, 0.22);
+}
+
+.ben-game-box .check-game-btn:disabled {
+
+    opacity: .4;
+
+    cursor:
+        not-allowed;
+}
+
+
+/* ==================================================
+   GIAI ĐOẠN GIẢI MẬT THƯ
+================================================== */
+
+.ben-cipher-stage {
+
+    max-width: 780px;
+
+    margin:
+        10px auto 0;
+
+    text-align: center;
+}
+
+.ben-cipher-header {
+
+    padding:
+        8px 25px 20px;
+}
+
+.ben-cipher-header > span {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color:
+        var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.ben-cipher-header h2 {
+
+    margin: 0;
+
+    color:
+        var(--box-title);
+
+    font-family:
+        "DT Phudu",
+        sans-serif;
+
+    font-size: 30px;
+    font-weight: 400;
+
+    letter-spacing: 1px;
+}
+
+.ben-cipher-header p {
+
+    max-width: 620px;
+
+    margin:
+        10px auto 0;
+
+    color:
+        var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* ==================================================
+   Ô NHẬP CÂU TRẢ LỜI
+================================================== */
+
+.ben-answer-group {
+
+    margin:
+        8px auto 15px;
+
+    padding:
+        20px 25px;
+
+    border:
+        1px solid rgba(169, 79, 66, 0.35);
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.38);
+}
+
+.ben-answer-group label {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    color:
+        var(--box-red);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    line-height: 1.6;
+}
+
+#benCipherInput {
+
+    display: block;
+
+    width: 100%;
+    min-height: 105px;
+
+    padding:
+        13px 15px;
+
+    resize: vertical;
+
+    border:
+        1px solid #b99561;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background:
+        #fffaf0;
+
+    color:
+        var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+#benCipherInput::placeholder {
+
+    color:
+        #a89684;
+}
+
+#benCipherInput:focus {
+
+    border-color:
+        var(--box-red);
+
+    box-shadow:
+        0 0 0 3px rgba(169, 79, 66, 0.1);
+}
+
+
+/* ==================================================
+   THÔNG BÁO TRẢ LỜI
+================================================== */
+
+.ben-answer-message {
+
+    min-height: 22px;
+
+    margin:
+        5px 0 12px;
+
+    color:
+        var(--box-red);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   MÀN HÌNH THÀNH CÔNG
+================================================== */
+
+.ben-game-success {
+
+    max-width: 760px;
+
+    margin:
+        5px auto 0;
+
+    padding:
+        20px 25px 10px;
+
+    text-align: center;
+}
+
+.ben-success-mark {
+
+    width: 55px;
+    height: 55px;
+
+    margin:
+        0 auto 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid var(--box-gold);
+
+    border-radius: 50%;
+
+    background:
+        #f3e6c8;
+
+    color:
+        var(--box-gold);
+
+    font-size: 25px;
+}
+
+.ben-game-success > span {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color:
+        var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.ben-game-success h2 {
+
+    margin:
+        0 0 15px;
+
+    color:
+        var(--box-title);
+
+    font-family:
+        "DT Phudu",
+        sans-serif;
+
+    font-size: 32px;
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+    line-height: 1.2;
+}
+
+.ben-game-success p {
+
+    max-width: 650px;
+
+    margin:
+        0 auto 22px;
+
+    color:
+        var(--box-text);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* ==================================================
+   NOTICE HOÀN THÀNH BẾN
+   DÙNG CHUNG KIỂU NOTICE
+================================================== */
+
+#benCompleteNotice {
+    z-index: 18000;
+}
+
+
+/* Quan trọng:
+   notice đang dùng [hidden], nên khi JS bỏ hidden
+   thì class show mới điều khiển hiển thị.
+*/
+
+#benCompleteNotice[hidden] {
+    display: none !important;
+}
+
+
+/* ==================================================
+   NÚT NOTICE BẾN
+================================================== */
+
+.ben-notice-buttons {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 2px;
+}
+
+.ben-notice-buttons button {
+
+    min-width: 145px;
+
+    padding:
+        11px 23px;
+
+    border:
+        1px solid var(--box-red);
+
+    border-radius: 999px;
+
+    background:
+        var(--box-red);
+
+    color:
+        white;
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.ben-notice-buttons button:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        #762c27;
+
+    box-shadow:
+        0 7px 18px rgba(127, 48, 41, 0.2);
+}
+
+
+/* Nút tiếp tục */
+
+.ben-notice-buttons button:last-child {
+
+    background:
+        transparent;
+
+    color:
+        var(--box-red);
+}
+
+.ben-notice-buttons button:last-child:hover {
+
+    background:
+        #eadfcf;
+
+    box-shadow:
+        none;
+}
+
+
+/* ==================================================
+   MOBILE GAME BẾN
+================================================== */
+
+@media (max-width: 800px) {
+
+    .ben-game-box {
+
+        width: 94vw;
+        max-height: 90vh;
+
+        padding:
+            30px 20px 25px;
+    }
+
+    .ben-game-box .game-header {
+
+        padding:
+            5px 10px 15px;
+    }
+
+    .ben-game-box .game-header h1 {
+
+        font-size: 29px;
+
+        letter-spacing: 1px;
+    }
+
+    .ben-game-box .game-header > p {
+
+        font-size: 12px;
+    }
+
+
+    /* 4 card → 2x2 */
+
+    .ben-clue-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .ben-clue-card {
+
+        min-height: 195px;
+
+        padding:
+            18px 12px 14px;
+    }
+
+    .ben-clue-icon {
+
+        width: 45px;
+        height: 45px;
+
+        font-size: 19px;
+    }
+
+    .ben-clue-title {
+
+        font-size: 16px;
+    }
+
+    .ben-clue-text {
+
+        font-size: 10px;
+    }
+
+    .ben-clue-result {
+
+        font-size: 9px;
+    }
+
+
+    /* Cipher */
+
+    .ben-cipher-header h2 {
+
+        font-size: 25px;
+    }
+
+    .ben-answer-group {
+
+        padding:
+            16px;
+    }
+
+    .ben-answer-group label {
+
+        font-size: 12px;
+    }
+
+
+    /* Success */
+
+    .ben-game-success h2 {
+
+        font-size: 26px;
+    }
+
+    .ben-game-success p {
+
+        font-size: 12px;
+    }
+
+
+    /* Notice */
+
+    .notice-box {
+
+        width: 94vw;
+
+        padding:
+            38px 20px 28px;
+    }
+
+    .notice-box h2 {
+
+        font-size: 28px;
+    }
+
+    .notice-box p {
+
+        font-size: 13px;
+    }
+
+    .ben-notice-buttons {
+
+        flex-direction: column;
+
+        width: 100%;
+
+        gap: 9px;
+    }
+
+    .ben-notice-buttons button {
+
+        width: 100%;
+    }
+}
+
+
+/* ==================================================
+   MOBILE NHÀ TRƯNG BÀY
+================================================== */
+
+@media (max-width: 600px) {
+
+    .ben-area {
+
+        padding:
+            0 75px;
+    }
+
+    .ben-area .area-circle {
+
+        width: 145px;
+        height: 145px;
+    }
+
+    .ben-area .area-circle span {
+
+        font-size: 16px;
+        text-align: center;
+    }
+}
+.ben-history-game { 
+    position: fixed; 
+    inset: 0; 
+    z-index: 3000; 
+    display: none; 
+    align-items: center; 
+    justify-content: center; 
+} 
+ 
+.ben-history-game.show { 
+    display: flex; 
+}
+/* ==================================================
+   NÚT TRÒN ĐỊA ĐẠO CỦ CHI
+   DÙNG Y CHANG STYLE BẾN NHÀ RỒNG
+================================================== */
+
+.diaDao-area {
+    position: absolute;
+    
+    left: 50%;
+    top: 50%;
+
+    width: 180px;
+    height: 180px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: var(--box-bg);
+    border: 2px solid var(--box-border);
+    box-shadow: var(--box-shadow);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+    
+    z-index: 10;
+}
+
+.diaDao-area:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+.diaDao-area span {
+    color: var(--box-red);
+
+    font-family:
+        "Noto Sans", 
+        sans-serif;
+    font-size: 23px;
+    font-weight: 300;
+
+    letter-spacing: 1px;
+    line-height: 1.2;
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   MOBILE ĐỊA ĐẠO
+================================================== */
+
+@media (max-width: 600px) {
+
+    .diaDao-area {
+        width: 145px;
+        height: 145px;
+    }
+
+    .diaDao-area span {
+        font-size: 16px;
+        text-align: center;
+    }
+
+}
+/* =====================================
+   SƠ ĐỒ ĐỊA ĐẠO CỦ CHI
+===================================== */
+
+.dia-dao-map-screen {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f5ecd9;
+
+    z-index: 20;
+}
+
+.dia-dao-map-full {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    user-select: none;
+    -webkit-user-drag: none;
+}
+/* ==================================================
+   GAME ĐỊA ĐẠO CỦ CHI
+================================================== */
+
+.dia-dao-game {
+    position: fixed;
+    inset: 0;
+
+    z-index: 20000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(30, 22, 15, 0.58);
+
+    backdrop-filter: blur(5px);
+}
+
+.dia-dao-game.show {
+    display: flex;
+}
+
+.dia-dao-game-box {
+    position: relative;
+
+    width: min(1150px, 94vw);
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    padding: 35px;
+
+    background: #f5ecd9;
+
+    border: 2px solid #a94f42;
+
+    border-radius: 20px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+
+
+/* NÚT ĐÓNG */
+
+.dia-dao-close {
+    position: absolute;
+
+    top: 15px;
+    right: 18px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #8f4036;
+    color: white;
+
+    font-size: 25px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 5;
+}
+
+
+/* TIÊU ĐỀ */
+
+.dia-dao-title {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.dia-dao-title h2 {
+    margin: 0;
+
+    color: #8f4036;
+
+    font-family: "DT Phudu", sans-serif;
+
+    font-size: 34px;
+
+    letter-spacing: 1px;
+}
+
+.dia-dao-title p {
+    margin: 8px 0 0;
+
+    color: #60483b;
+
+    font-family: "Noto Sans", sans-serif;
+
+    font-size: 13px;
+}
+
+
+/* BOARD */
+
+.dia-dao-board {
+    display: grid;
+
+    grid-template-columns: minmax(500px, 1.4fr) minmax(300px, .8fr);
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+
+/* BẢN ĐỒ */
+
+.dia-dao-map {
+    position: relative;
+
+    width: 100%;
+
+    border: 1px solid rgba(169,79,66,.35);
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    background: #eee2ca;
+}
+
+.dia-dao-map-image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    pointer-events: none;
+}
+
+
+/* SLOT */
+
+.dia-dao-slot {
+    position: absolute;
+
+    width: 65px;
+    height: 65px;
+
+    transform: translate(-50%, -50%);
+
+    border: 2px dashed #a87935;
+
+    border-radius: 50%;
+
+    background: rgba(245,236,217,.78);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #8f4036;
+
+    font-family: "Noto Sans", sans-serif;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.dia-dao-slot:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+.dia-dao-slot.drag-over {
+    background: rgba(168,121,53,.25);
+
+    border-color: #8f4036;
+}
+
+.dia-dao-slot.correct {
+    border-style: solid;
+
+    background: rgba(243,230,200,.95);
+}
+
+.dia-dao-slot.wrong {
+    border-color: #8f4036;
+
+    animation: diaDaoWrong .3s ease;
+}
+
+@keyframes diaDaoWrong {
+    0%,100% {
+        transform: translate(-50%, -50%);
+    }
+
+    50% {
+        transform: translate(-46%, -50%);
+    }
+}
+
+
+/* VỊ TRÍ 7 SLOT
+   Có thể chỉnh lại nếu ảnh dd.png có vị trí khác */
+
+.dia-dao-slot[data-slot="1"] {
+    left: 85%;
+    top: 55%;
+}
+
+.dia-dao-slot[data-slot="2"] {
+    left: 42%;
+    top: 27%;
+}
+
+.dia-dao-slot[data-slot="3"] {
+    left: 18%;
+    top: 45%;
+}
+
+.dia-dao-slot[data-slot="4"] {
+    left: 75%;
+    top: 75%;
+}
+
+.dia-dao-slot[data-slot="5"] {
+    left: 18%;
+    top: 73%;
+}
+
+.dia-dao-slot[data-slot="6"] {
+    left: 55%;
+    top: 55%;
+}
+
+.dia-dao-slot[data-slot="7"] {
+    left: 44%;
+    top: 75%;
+}
+
+
+/* ẢNH PHÒNG ĐÃ ĐẶT */
+
+.dia-dao-room-placed {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.dia-dao-room-placed img {
+    width: 80%;
+    height: 80%;
+
+    object-fit: contain;
+
+    pointer-events: none;
+}
+
+
+/* DANH SÁCH PHÒNG */
+
+.dia-dao-rooms {
+    padding: 20px;
+
+    border: 1px solid rgba(169,79,66,.35);
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.3);
+}
+
+.dia-dao-rooms h3 {
+    margin: 0 0 5px;
+
+    color: #8f4036;
+
+    font-family: "DT Phudu", sans-serif;
+
+    font-size: 22px;
+}
+
+.dia-dao-progress {
+    margin: 0 0 15px;
+
+    color: #60483b;
+
+    font-family: "Noto Sans", sans-serif;
+
+    font-size: 12px;
+}
+
+
+/* ROOM LIST */
+
+.dia-dao-room-list {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+
+/* CARD */
+
+.dia-dao-room {
+    padding: 10px;
+
+    border: 1px solid rgba(169,79,66,.4);
+
+    border-radius: 10px;
+
+    background: #f8f0df;
+
+    cursor: grab;
+
+    text-align: center;
+
+    transition: .2s ease;
+}
+
+.dia-dao-room:hover {
+    transform: translateY(-3px);
+
+    border-color: #a87935;
+}
+
+.dia-dao-room.selected {
+    border: 2px solid #a87935;
+
+    background: #f3e6c8;
+}
+
+.dia-dao-room.completed {
+    opacity: .4;
+
+    cursor: default;
+}
+
+
+/* CHỈ ẢNH TRONG CARD MỚI ĂN STYLE NÀY */
+
+.dia-dao-room > img {
+    display: block;
+
+    width: 100%;
+    height: 75px;
+
+    object-fit: contain;
+
+    margin-bottom: 7px;
+}
+
+.dia-dao-room > span {
+    display: block;
+
+    color: #60483b;
+
+    font-family: "Noto Sans", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+
+/* MESSAGE */
+
+.dia-dao-message {
+    margin: 15px 0 0;
+
+    color: #8f4036;
+
+    font-family: "Noto Sans", sans-serif;
+
+    font-size: 12px;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   THÔNG TIN TỪNG PHÒNG
+================================================== */
+
+.dia-dao-room-info {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 21000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(30,22,15,.4);
+}
+
+.dia-dao-room-info-box {
+    position: relative;
+
+    width: min(500px, 90vw);
+
+    padding: 35px;
+
+    background: #f5ecd9;
+
+    border: 2px solid #a94f42;
+
+    border-radius: 20px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,.25);
+
+    text-align: center;
+}
+
+.dia-dao-room-info-box h2 {
+    margin: 0 0 15px;
+
+    color: #8f4036;
+
+    font-family: "DT Phudu", sans-serif;
+
+    font-size: 28px;
+}
+
+.dia-dao-room-info-box p {
+    margin: 0 0 25px;
+
+    color: #60483b;
+
+    font-family: "Noto Sans", sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+.dia-dao-info-close {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    border: none;
+
+    background: none;
+
+    color: #8f4036;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.dia-dao-info-ok {
+    padding: 11px 25px;
+
+    border: none;
+    border-radius: 999px;
+
+    background: #8f4036;
+
+    color: white;
+
+    font-family: "Noto Sans", sans-serif;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* ==================================================
+   VIDEO GAME ĐỊA ĐẠO
+================================================== */
+
+.dia-dao-video {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 22000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(20,15,10,.65);
+
+    backdrop-filter: blur(5px);
+}
+
+.dia-dao-video.show {
+    display: flex;
+}
+
+.dia-dao-video-box {
+    position: relative;
+
+    width: min(900px, 92vw);
+
+    padding: 20px;
+
+    background: #f5ecd9;
+
+    border: 2px solid #a94f42;
+
+    border-radius: 20px;
+}
+
+.dia-dao-video-box video {
+    display: block;
+
+    width: 100%;
+
+    max-height: 70vh;
+
+    border-radius: 10px;
+}
+
+.dia-dao-video-close {
+    position: absolute;
+
+    top: -15px;
+    right: -15px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #8f4036;
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    z-index: 5;
+}
+
+.dia-dao-video-source {
+    margin-top: 8px;
+
+    color: #60483b;
+
+    font-family: "Noto Sans", sans-serif;
+
+    font-size: 10px;
+}
+
+
+.dia-dao-history-video {
+    position: fixed;
+    inset: 0;
+    z-index: 23000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity .25s ease;
+}
+
+.dia-dao-history-video.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dia-dao-history-box {
+    position: relative;
+
+    width: min(950px, 92vw);
+
+    padding: 30px;
+
+    background: #f5ecd9;
+
+    border: 2px solid #a94f42;
+
+    border-radius: 20px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,.3);
+}
+
+.dia-dao-history-title {
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+.dia-dao-history-title span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #60483b;
+
+    font-family: "Noto Sans", sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.dia-dao-history-title h2 {
+    margin: 0;
+
+    color: #8f4036;
+
+    font-family: "DT Phudu", sans-serif;
+
+    font-size: 30px;
+}
+
+
+/* QUAN TRỌNG:
+   iframe riêng, không dùng selector ảnh phòng */
+
+
+
+.dia-dao-history-player iframe {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+.dia-dao-history-close {
+    position: absolute;
+
+    top: -15px;
+    right: -15px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #8f4036;
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    z-index: 5;
+}
+
+.video-source {
+    margin-top: 8px;
+
+    color: #60483b;
+
+    font-family: "Noto Sans", sans-serif;
+
+    font-size: 10px;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 800px) {
+
+    .dia-dao-game-box {
+        width: 95vw;
+
+        padding: 25px 18px;
+    }
+
+    .dia-dao-board {
+        grid-template-columns: 1fr;
+    }
+
+    .dia-dao-room-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .dia-dao-title h2 {
+        font-size: 25px;
+    }
+
+    .dia-dao-room-list {
+        grid-template-columns: 1fr;
+    }
+
+    .dia-dao-slot {
+        width: 45px;
+        height: 45px;
+
+        font-size: 11px;
+    }
+
+    .dia-dao-history-box {
+        padding: 20px 15px;
+    }
+
 }
