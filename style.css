@@ -1056,21 +1056,13 @@ body.fade-out {
 
 
 .notice-box p {
-
     max-width: 460px;
-
-    margin:
-        0 0 28px;
-
-    color:
-        var(--box-text);
-
-    font-family:
-        "Noto Sans",
-        sans-serif;
-
+    margin: 0 0 28px;
+    color: var(--box-text);
+    font-family: "Noto Sans", sans-serif;
     font-size: 14px;
     line-height: 1.7;
+    text-align: justify;
 }
 
 
