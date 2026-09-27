@@ -934,15 +934,19 @@ function openScene(sceneName) {
             document.body.classList.remove("fade-out");
 
 
-            setTimeout(() => {
+           setTimeout(() => {
 
-                showNotice(
-                    "BẠN ĐANG Ở DINH ĐỘC LẬP",
-                    "Chào mừng bạn đến với khu trưng bày Dinh Độc Lập.",
-                    "BẮT ĐẦU KHÁM PHÁ"
-                );
+    showNotice(
+        "BẠN ĐANG Ở DINH ĐỘC LẬP",
 
-            }, 500);
+        "Dinh Độc Lập có lịch sử gắn với nhiều biến động của Sài Gòn từ thời thuộc địa. Công trình hiện nay được khởi công năm 1962 theo thiết kế của kiến trúc sư Ngô Viết Thụ, sau khi Dinh cũ bị hư hại nặng. Đến ngày 31/10/1966, Dinh được khánh thành và trở thành nơi làm việc của chính quyền Việt Nam Cộng hòa.",
+
+        "Ngày 30/4/1975, xe tăng tiến vào Dinh, đánh dấu sự kết thúc của chiến tranh và mở ra thời kỳ đất nước thống nhất. Với giá trị đặc biệt về lịch sử và kiến trúc, Dinh Độc Lập được công nhận là Di tích quốc gia đặc biệt, trở thành nơi lưu giữ những chứng tích quan trọng của lịch sử Việt Nam hiện đại.",
+
+        "BẮT ĐẦU KHÁM PHÁ"
+    );
+
+}, 500);
 
 
             return;
@@ -985,7 +989,8 @@ function openScene(sceneName) {
 
                 showNotice(
                     "BẠN ĐANG Ở BẾN NHÀ RỒNG",
-                    "Chào mừng bạn đến với khu trưng bày Bến Nhà Rồng.",
+                    "Đầu thế kỷ XX, trong bối cảnh đất nước chịu ách đô hộ và nhiều phong trào yêu nước chưa tìm được con đường phù hợp, Nguyễn Tất Thành quyết định ra nước ngoài tìm hướng đi mới cho dân tộc. Ngày 5/6/1911, từ Bến Nhà Rồng, Người lên tàu Amiral La Touche De Tréville, bắt đầu hành trình nhiều năm tìm đường cứu nước.",
+                    "Sự kiện ấy đã biến Bến Nhà Rồng thành một địa điểm mang dấu ấn sâu sắc trong lịch sử dân tộc. Ngày nay, nơi đây lưu giữ những tư liệu và câu chuyện về hành trình của Nguyễn Tất Thành, đồng thời trở thành không gian giáo dục truyền thống, giúp thế hệ hôm nay tìm hiểu về một bước ngoặt quan trọng của lịch sử Việt Nam.",
                     "BẮT ĐẦU KHÁM PHÁ"
                 );
 
@@ -1066,7 +1071,8 @@ function openScene(sceneName) {
 
                 showNotice(
                     "BẠN ĐANG Ở ĐỊA ĐẠO CỦ CHI",
-                    "Chào mừng bạn đến với khu di tích Địa đạo Củ Chi.",
+                    "Địa đạo Củ Chi được hình thành từ thời kháng chiến chống thực dân Pháp, bắt đầu từ những hầm bí mật rồi từng bước phát triển thành hệ thống đường hầm liên kết theo yêu cầu của cuộc chiến. Trong những năm chiến tranh sau đó, hệ thống tiếp tục được mở rộng với nhiều không gian phục vụ sinh hoạt, làm việc, cứu chữa và chiến đấu của quân và dân Củ Chi.",
+                    "Không chỉ là một công trình quân sự đặc biệt, địa đạo còn thể hiện sự sáng tạo, khả năng thích nghi và sức mạnh đoàn kết của người dân Củ Chi trong những năm tháng gian khổ. Ngày nay, Địa đạo Củ Chi là Di tích quốc gia đặc biệt, trở thành một địa chỉ lịch sử quan trọng, giúp thế hệ sau hiểu hơn về cuộc sống và những đóng góp của quân dân Củ Chi trong các cuộc kháng chiến.",
                     "BẮT ĐẦU KHÁM PHÁ"
                 );
 
@@ -1203,17 +1209,14 @@ function openDiaDaoMap() {
 
 function showNotice(
     title,
-    text,
+    text1,
+    text2,
     buttonText
 ) {
 
-    const notice =
-        document.createElement("div");
+    const notice = document.createElement("div");
 
-
-    notice.className =
-        "notice";
-
+    notice.className = "notice";
 
     notice.innerHTML = `
 
@@ -1221,7 +1224,13 @@ function showNotice(
 
             <h2>${title}</h2>
 
-            <p>${text}</p>
+            <div class="notice-text">
+
+                <p>${text1}</p>
+
+                <p>${text2}</p>
+
+            </div>
 
             <button id="noticeStartBtn">
                 ${buttonText}
@@ -1231,14 +1240,11 @@ function showNotice(
 
     `;
 
-
     document.body.appendChild(notice);
 
 
     const noticeStartBtn =
-        notice.querySelector(
-            "#noticeStartBtn"
-        );
+        notice.querySelector("#noticeStartBtn");
 
 
     if (!noticeStartBtn) {
@@ -1274,8 +1280,10 @@ function showNotice(
                 if (currentScene === "ben") {
 
                     if (benExploreBtn) {
+
                         benExploreBtn.style.display =
                             "flex";
+
                     }
 
                 }
@@ -1286,8 +1294,6 @@ function showNotice(
     );
 
 }
-
-
 /* =====================================
    HIỆN 2 KHU DINH ĐỘC LẬP
 ===================================== */
@@ -3275,13 +3281,18 @@ function openDiaDaoHistoryVideo() {
 
             <div class="dia-dao-history-player">
 
-                <iframe
-                    src="https://www.youtube.com/embed/6KCNBWBK6UY"
-                    title="Địa đạo Củ Chi | Xem phim 3D về Địa đạo Củ Chi"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
+                <video
+    id="diaDaoHistoryVideoPlayer"
+    controls
+    playsinline>
+
+    <source
+        src="diaDao-tu-lieu.mp4"
+        type="video/mp4">
+
+    Trình duyệt của bạn không hỗ trợ video.
+
+</video>
 
             </div>
 
