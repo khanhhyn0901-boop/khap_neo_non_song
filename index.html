@@ -1,1214 +1,1223 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>KHẮP NẺO NON SÔNG</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <!-- ===============================
-         INTRO KHẮP NẺO NON SÔNG
-    ================================ -->
-
-    <div class="welcome-box" id="welcomeBox">
-
+<div class="welcome-box" id="welcomeBox">
         <div class="welcome-content">
-
             <div class="welcome-opening">
-
                 <p>ĐI QUA MUÔN DẶM ĐƯỜNG ĐẤT NƯỚC</p>
-
                 <p>NGHE NGÀN CÂU CHUYỆN VỀ QUÊ HƯƠNG</p>
-
             </div>
-
             <div class="welcome-title">
-
                 <h1>KHẮP NẺO</h1>
-
                 <h1>NON SÔNG</h1>
-
                 <p class="subtitle">
                     HÀNH TRÌNH KHÁM PHÁ LỊCH SỬ VÀ VĂN HÓA VIỆT NAM
                 </p>
-
             </div>
-
             <button id="startBtn">
                 BẮT ĐẦU
             </button>
-
         </div>
-
     </div>
-
-
-    <!-- ===============================
-         BẢNG HƯỚNG DẪN
-    ================================ -->
-
-    <div class="guide-box hidden" id="guideBox">
-
+<div class="guide-box hidden" id="guideBox">
         <h2>HƯỚNG DẪN THAM QUAN</h2>
-
         <p>
-            🖱️ <b>Click</b> vào các cánh cửa để khám phá từng địa danh
+            🖱️ <b>Click chuột</b> vào các cánh cửa để khám phá từng địa danh
         </p>
-
         <p>
             👀 <b>Quan sát và tìm hiểu</b> các hiện vật, sự kiện lịch sử
         </p>
-
         <p>
             💡 <b>Tương tác</b> với hiện vật để tìm hiểu thêm về sự kiện lịch sử
         </p>
-
         <div class="guide-line"></div>
-
         <p class="quote">
             Đằng sau mỗi cánh cửa là một trang sử đang chờ được mở ra
         </p>
-
         <button id="exploreBtn">
             THAM QUAN NGAY
         </button>
-
     </div>
-
-
-    <!-- ===============================
-         TASKBAR BÊN TRÁI
-    ================================ -->
-
-    <div class="taskbar left-taskbar" id="leftTaskbar">
-
+<div class="taskbar left-taskbar" id="leftTaskbar">
         <button
             class="task-btn"
             id="backBtn"
             title="Quay lại">
-
             <svg viewBox="0 0 24 24">
                 <path d="M19 12H5"></path>
                 <path d="M12 19l-7-7 7-7"></path>
             </svg>
-
         </button>
-
     </div>
-
-
-    <!-- ===============================
-         TASKBAR BÊN PHẢI
-    ================================ -->
-
-    <div class="taskbar right-taskbar" id="rightTaskbar">
-
+<div class="taskbar right-taskbar" id="rightTaskbar">
         <button
             class="task-btn scene-btn"
             id="sceneInfoBtn"
             title="">
         </button>
-
         <button
             class="task-btn"
             id="mapsBtn"
             title="Google Maps">
-
             <svg viewBox="0 0 24 24">
-
                 <path
                     d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z">
                 </path>
-
                 <circle
                     cx="12"
                     cy="9"
                     r="2.5">
                 </circle>
-
             </svg>
-
         </button>
-
     </div>
-
-
-    <!-- ===============================
-         KHU VỰC BẢO TÀNG
-    ================================ -->
-
-    <div class="museum" id="museum">
-
+<div class="museum" id="museum">
         <img
             src="bgr.png"
             class="background"
             alt="Bảo tàng KHẮP NẺO NON SÔNG">
-
         <img
             src="door1-dinh.png"
             class="door door1"
             data-name="DINH ĐỘC LẬP"
             alt="Dinh Độc Lập">
-
         <img
             src="door2-bencang.png"
             class="door door2"
             data-name="BẾN NHÀ RỒNG"
             alt="Bến Nhà Rồng">
-
         <img
             src="door3-diadao.png"
             class="door door3"
             data-name="ĐỊA ĐẠO CỦ CHI"
             alt="Địa đạo Củ Chi">
-
     </div>
-
-
-    <!-- ===============================
-         MÀN HÌNH DINH ĐỘC LẬP
-    ================================ -->
-
-    <div class="dinh-scene" id="dinhScene">
-
-        <!-- BACKGROUND DINH ĐỘC LẬP -->
-
+<div class="dinh-scene" id="dinhScene">
         <img
             src="dinh.png"
             class="dinh-background"
             alt="Dinh Độc Lập">
-
-
-        <!-- ===============================
-             2 KHU THAM QUAN
-        ================================ -->
-
+    <button
+        id="dinhHamHotspot"
+        type="button"
+        aria-label="Khám phá hệ thống hầm">
+    </button>
         <div
             id="dinhAreas"
             class="dinh-areas">
-
             <button
                 class="area-circle"
                 id="area1">
-
                 <span>KHU TRƯNG BÀY</span>
                 <span>CỐ ĐỊNH</span>
-
             </button>
-
-
             <button
                 class="area-circle"
                 id="area2">
-
                 <span>KHU SINH HOẠT GIA ĐÌNH TỔNG THỐNG</span>
-
             </button>
-
         </div>
-
     </div>
-
-
-    <!-- ===============================
-         KHU TRƯNG BÀY
-    ================================ -->
-
     <div
         class="scroll-scene"
         id="exhibitScene">
-
         <div class="scroll-content">
-
             <div class="scroll-section">
-
                 <div class="scroll-image">
-
                     <img
                         src="a.png"
                         alt="Hiện vật 1">
-
                 </div>
-
                 <div class="scroll-info">
-
                     <h2>PHÒNG KHÁNH TIẾT</h2>
-
                     <p>
                         là một trong những không gian quan trọng của Dinh Độc Lập, được sử dụng để tổ chức các nghi lễ, hội họp và tiếp đón các đoàn khách quan trọng. Đây cũng là nơi diễn ra nhiều sự kiện mang tính chính thức của chính quyền Việt Nam Cộng hòa.
                     </p>
-
                 </div>
-
             </div>
-
-
             <div class="scroll-section">
-
                 <div class="scroll-image">
-
                     <img
                         src="b.png"
                         alt="Hiện vật 2">
-
                 </div>
-
                 <div class="scroll-info">
-
                     <h2>PHÒNG HỌP NỘI CÁC</h2>
-
                     <p>
                         là nơi Tổng thống chủ trì các cuộc họp với các thành viên Nội các và Hội đồng Tổng trưởng. Tại đây, các vấn đề về chính trị, kinh tế, xã hội và hoạt động điều hành chính quyền được đưa ra thảo luận.
                     </p>
-
                 </div>
-
             </div>
-
-
             <div class="scroll-section">
-
                 <div class="scroll-image">
-
                     <img
                         src="c.png"
                         alt="Hiện vật 3">
-
                 </div>
-
                 <div class="scroll-info">
-
                     <h2>PHÒNG ĐẠI YẾN</h2>
-
                     <p>
                         được sử dụng làm nơi tổ chức các buổi tiệc chiêu đãi và tiếp khách chính thức. Phòng có không gian rộng, được trang trí trang trọng và từng là nơi diễn ra nhiều buổi tiệc quan trọng trong thời kỳ Dinh Độc Lập còn là trung tâm làm việc của chính quyền.
                     </p>
                     <a href="https://dinhdoclap.gov.vn/" target="_blank" class="image-source">
-    Ghé thăm: Dinh Độc Lập
-</a>
-
-
+                    Ghé thăm: Dinh Độc Lập
+                    </a>
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
-    <!-- ===============================
-         KHU SINH HOẠT
-    ================================ -->
-
     <div
         class="scroll-scene"
         id="familyScene">
-
         <div class="scroll-content">
-
             <div class="scroll-section">
-
                 <div class="scroll-image">
-
                     <img
                         src="1.png"
                         alt="Khu sinh hoạt 1">
-
                 </div>
-
                 <div class="scroll-info">
-
                     <h2>PHÒNG KHÁCH GIA ĐÌNH</h2>
-
                     <p>
                         là không gian thuộc khu sinh hoạt của gia đình Tổng thống tại lầu 2. Phòng được dùng cho sinh hoạt, tiếp khách trong phạm vi gia đình, khác với các phòng tiếp khách và nghi lễ ở khu làm việc chính thức.
                     </p>
-
                 </div>
-
             </div>
-
-
             <div class="scroll-section">
-
                 <div class="scroll-image">
-
                     <img
                         src="2.png"
                         alt="Khu sinh hoạt 2">
-
                 </div>
-
                 <div class="scroll-info">
-
                     <h2>PHÒNG NGỦ TỔNG THỐNG VÀ PHU NHÂN</h2>
-
                     <p>
                         Nằm trong khu gia đình ở lầu 2, đây là không gian nghỉ ngơi riêng của Tổng thống và Phu nhân. Căn phòng được giữ lại với đồ dùng và nội thất sinh hoạt nhằm tái hiện không gian sống của gia đình tại Dinh.
                     </p>
-
                 </div>
-
             </div>
-
-
             <div class="scroll-section">
-
                 <div class="scroll-image">
-
                     <img
                         src="3.png"
                         alt="Khu sinh hoạt 3">
-
                 </div>
-
                 <div class="scroll-info">
-
                     <h2>PHÒNG GIẢI TRÍ</h2>
-
                     <p>
                         Nằm ở lầu 3, đây là không gian dành cho xem phim và giải trí, với khu vực chiếu phim và ghế ngồi. Website Dinh Độc Lập cũng xác nhận đây là một điểm tham quan riêng trong khu vực lầu 3.
                     </p>
                     <a href="https://dinhdoclap.gov.vn/" target="_blank" class="image-source">
-    Ghé thăm: Dinh Độc Lập
-</a>
-
+                    Ghé thăm: Dinh Độc Lập
+                    </a>
                 </div>
-
             </div>
-
         </div>
-
     </div>
-<!-- ===============================
-     MÀN HÌNH BẾN NHÀ RỒNG
-================================ -->
-
 <div class="ben-scene" id="benScene">
-
-    <img
-        src="ben.png"
-        class="ben-background"
+    <img 
+        src="ben.png" 
+        class="ben-background" 
         alt="Bến Nhà Rồng">
-
     <div class="ben-area">
-
-        <button
-            class="area-circle"
+        <button 
+            class="area-circle" 
             id="benExploreBtn">
-
             <span>NHÀ TRƯNG BÀY</span>
-
         </button>
-
     </div>
-
 </div>
-<!-- ==================================================
-     GAME BẾN NHÀ RỒNG
-================================================== -->
-
+<div 
+    class="ben-exhibition" 
+    id="benExhibition">
+    <section class="ben-video-section">
+    <video
+        id="benVideo"
+        class="ben-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        controls>
+        <source
+            src="./ben-video.mp4"
+            type="video/mp4">
+    </video>
+</section>
+    <section class="ben-gallery-section">
+        <div class="ben-gallery-sticky">
+            <div
+                class="ben-gallery-track"
+                id="benGalleryTrack">
+                <div class="ben-gallery-item">
+                    <img
+                        src="a1.jpg"
+                        alt="Bến Nhà Rồng">
+                </div>
+                <div class="ben-gallery-item">
+                    <img
+                        src="a2.jpg"
+                        alt="Bến Nhà Rồng">
+                </div>
+                <div class="ben-gallery-item">
+                    <img
+                        src="a3.jpg"
+                        alt="Bến Nhà Rồng">
+                </div>
+                <div class="ben-gallery-item">
+                    <img
+                        src="a4.jpg"
+                        alt="Bến Nhà Rồng">
+                </div>
+                <div class="ben-gallery-item">
+                    <img
+                        src="a5.jpg"
+                        alt="Bến Nhà Rồng">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ben-narration">
+        <div class="ben-narration-text">
+            <h2>BẾN NHÀ RỒNG</h2>
+            <p>Nơi đây còn được gọi là Bảo tàng Hồ Chí Minh, chi nhánh TP.HCM hiện có 10 phòng trưng bày, trong đó 5 phòng chuyên đề giới thiệu 8 giai đoạn trong sự nghiệp cách mạng của Chủ tịch Hồ Chí Minh. Bảo tàng lưu giữ khoảng 24.000 hiện vật, tư liệu và hình ảnh, đồng thời thường xuyên đổi mới các chuyên đề, triển lãm phục vụ khách tham quan.</p>
+            <p>
+              Chủ đề 1: Thời thơ ấu và thanh niên của Chủ tịch Hồ Chí Minh. Bước đầu hoạt động yêu nước và cách mạng. Chủ tịch Hồ Chí Minh tiếp nhận chủ nghĩa Mác-Lênin và khẳng định con đường cách mạng Việt Nam (1890 - 1920).  
+            </p>
+             <p>
+              Chủ đề 2: Chủ tịch Hồ Chí Minh bảo vệ và vận dụng sáng tạo đường lối của V.I. Lênin về vấn đề dân tộc và thuộc địa. Chủ tịch Hồ Chí Minh sáng lập chính đảng của giai cấp công nhân Việt Nam (1920 - 1930).
+            </p>
+             <p>
+              Chủ đề 3: Chủ tịch Hồ Chí Minh là người tổ chức và lãnh đạo Cách mạng tháng Tám thắng lợi và sáng lập nước Việt Nam Dân chủ Cộng hòa, đấu tranh giữ vững chính quyền cách mạng và kháng chiến chống thực dân Pháp xâm lược (1930 - 1954).
+            </p>
+             <p>
+              Chủ đề 4: Chủ tịch Hồ Chí Minh lãnh đạo cách mạng xã hội chủ nghĩa ở miền Bắc và đấu tranh chống Mỹ xâm lược, giải phóng miền Nam, thống nhất Tổ quốc (1954 - 1969).
+            </p>
+             <p>
+              Chủ đề 5: Nhân dân Việt Nam thực hiện theo Di chúc của Chủ tịch Hồ Chí Minh, hoàn thành sự nghiệp giải phóng miền Nam, thống nhất hoàn toàn Tổ quốc, xây dựng một nước Việt Nam hòa bình, thống nhất, độc lập, dân chủ và giàu mạnh, góp phần xứng đáng vào sự nghiệp cách mạng của nhân dân thế giới (1969 - nay).
+            </p>
+            <a href="https://bennharong.hochiminh.vn/" target="_blank" class="image-source">
+            Ghé thăm: Bến Nhà Rồng
+            </a>
+        </div>
+    </section>
+</div>
 <div class="history-game ben-history-game" id="benGame">
-
     <div class="game-box ben-game-box">
-
-        <!-- NÚT ĐÓNG -->
         <button class="game-close" id="benGameClose" title="Thoát game">
             <svg viewBox="0 0 24 24">
                 <path d="M6 6l12 12"></path>
                 <path d="M18 6L6 18"></path>
             </svg>
         </button>
-
-        <!-- HEADER -->
         <div class="game-header">
-
             <p class="game-eyebrow">
                 TƯ LIỆU LỊCH SỬ
             </p>
-
             <h1>
                 NGƯỜI ANH HÙNG CỨU QUỐC
             </h1>
-
-            <p>
-                Hãy khám phá 4 manh mối tại Bến Nhà Rồng
-                để tìm ra sự kiện lịch sử có liên quan.
-            </p>
-
         </div>
-
-
-        <!-- ===============================
-             GIAI ĐOẠN 1 — TÌM MANH MỐI
-        ================================ -->
-
         <div id="benClueStage">
-
             <div class="ben-game-intro">
-
                 <span>NHIỆM VỤ</span>
-
                 <p>
-                    Khám phá đủ 4 manh mối để tìm ra
-                    sự kiện lịch sử có liên quan
+                    Hãy sử dụng các từ ngữ trong manh mối để hoàn thành mật thư
                 </p>
-
             </div>
-
-
-            <!-- TIẾN TRÌNH -->
-
             <div class="ben-progress">
-
                 <span>MANH MỐI ĐÃ THU THẬP</span>
-
                 <strong id="benClueProgress">
                     0 / 4
                 </strong>
-
             </div>
-
-
-            <!-- 4 MANH MỐI -->
-
             <div class="ben-clue-grid">
-
                 <button
                     type="button"
                     class="ben-clue-card"
                     data-clue="place">
-
                     <span class="ben-clue-number">01</span>
-
                     <span class="ben-clue-icon">🏛</span>
-
                     <span class="ben-clue-title">
                         BẾN NHÀ RỒNG
                     </span>
-
-                    <span class="ben-clue-text">
-                        Con tàu Amiral Latouche-Tréville
-                    </span>
-
-                    <span class="ben-clue-result">
-                        Địa điểm: Bến Nhà Rồng
-                    </span>
-
                 </button>
-
-
                 <button
                     type="button"
                     class="ben-clue-card"
                     data-clue="date">
-
                     <span class="ben-clue-number">02</span>
-
                     <span class="ben-clue-icon">📜</span>
-
                     <span class="ben-clue-title">
-                        Mảnh báo
+                        Tờ báo
                     </span>
-
-                    <span class="ben-clue-text">
-                        Sự kiện lịch sử bắt đầu
-                    </span>
-
                     <span class="ben-clue-result">
                         Ngày: 05/06/1911
                     </span>
-
                 </button>
-
-
                 <button
                     type="button"
                     class="ben-clue-card"
                     data-clue="person">
-
                     <span class="ben-clue-number">03</span>
-
                     <span class="ben-clue-icon">👤</span>
-
                     <span class="ben-clue-title">
                         ANH BA
                     </span>
-
-                    <span class="ben-clue-text">
-                        Người anh hùng vĩ đại của tổ quốc
-                    </span>
-
                     <span class="ben-clue-result">
                         Nguyễn Tất Thành
                     </span>
-
                 </button>
-
-
                 <button
                     type="button"
                     class="ben-clue-card"
                     data-clue="ship">
-
                     <span class="ben-clue-number">04</span>
-
                     <span class="ben-clue-icon">🚢</span>
-
                     <span class="ben-clue-title">
                         CON TÀU
                     </span>
-
-                    <span class="ben-clue-text">
-                        Nơi anh Ba bắt đầu con đường cứu quốc
-                    </span>
-
                     <span class="ben-clue-result">
                         Amiral Latouche-Tréville
                     </span>
-
                 </button>
-
             </div>
-
-
-            <!-- CHI TIẾT MANH MỐI -->
-
-            <div class="ben-clue-detail">
-
-                <p
-                    class="game-eyebrow"
-                    id="benClueDetailTitle">
-
-                    MANH MỐI
-
-                </p>
-
-                <p id="benClueDetailText">
-
-                    Chọn một manh mối để khám phá thông tin.
-
-                </p>
-
-            </div>
-
-
-            <p
-                class="ben-game-message"
-                id="benGameMessage">
-
-                Hãy khám phá đủ 4 manh mối để tiếp tục.
-
-            </p>
-
-
             <button
                 type="button"
                 class="check-game-btn"
                 id="benSolveBtn"
                 disabled>
-
                 GIẢI MẬT THƯ
-
             </button>
-
         </div>
-
-
-        <!-- ===============================
-             GIAI ĐOẠN 2 — CÂU HỎI
-        ================================ -->
-
         <div
             id="benCipherStage"
             class="ben-cipher-stage"
             hidden>
-
-            <div class="ben-cipher-header">
-
-                <span>
-                    GIẢI MÃ
-                </span>
-
-                <h2>
-                    BẠN ĐÃ TÌM RA ĐÁP ÁN?
-                </h2>
-
-                <p>
-                    Hãy dựa vào 4 manh mối vừa khám phá
-                    để xác định sự kiện lịch sử được nhắc đến.
-                </p>
-
-            </div>
-
-
-            <!-- CÂU HỎI -->
-
             <div class="ben-answer-group">
-
                 <label for="benCipherInput">
                     NHỮNG MANH MỐI TRÊN GỢI CHO BẠN SỰ KIỆN LỊCH SỬ NÀO?
                 </label>
-
                 <textarea
                     id="benCipherInput"
                     placeholder="Nhập câu trả lời của bạn..."
                     autocomplete="off">
                 </textarea>
-
             </div>
-
-
             <p
                 class="ben-answer-message"
                 id="benCipherMessage">
             </p>
-
-
             <button
                 type="button"
                 class="check-game-btn"
                 id="benCipherCheckBtn">
-
                 XÁC NHẬN
-
             </button>
-
         </div>
-
-
-        <!-- ===============================
-             THÀNH CÔNG
-        ================================ -->
-
         <div
             id="benGameSuccess"
             class="ben-game-success"
             hidden>
-
-            <div class="ben-success-mark">
-                ✦
-            </div>
-
             <span>
                 MẬT THƯ ĐÃ ĐƯỢC GIẢI
             </span>
-
             <h2>
                 HÀNH TRÌNH ĐÃ SÁNG TỎ
             </h2>
-
             <p>
                 Ngày 05/06/1911, Nguyễn Tất Thành
                 rời Bến Nhà Rồng trên tàu
                 Amiral Latouche-Tréville,
                 bắt đầu hành trình ra đi tìm đường cứu nước.
             </p>
-
             <button
                 type="button"
                 class="check-game-btn"
                 id="benOpenSiteBtn">
-
                 MỞ HỒ SƠ HÀNH TRÌNH
-
             </button>
-
         </div>
-
     </div>
-
 </div>
-
-
-<!-- ==================================================
-     NOTICE HOÀN THÀNH BẾN
-================================================== -->
-
 <div id="benCompleteNotice" class="notice" hidden>
-
     <div class="notice-box">
-
         <h2>
             BẠN ĐÃ HOÀN THÀNH<br>
             CHẶNG BẾN NHÀ RỒNG
         </h2>
-
         <p>
             Bạn đã hoàn thành thử thách và khám phá
-            câu chuyện về hành trình của Anh Ba.
+            câu chuyện về hành trình của anh Ba.
         </p>
-
         <div class="ben-notice-buttons">
-
             <button
                 type="button"
                 id="benExploreAgainBtn">
-
                 KHÁM PHÁ LẠI
-
             </button>
-
             <button
                 type="button"
                 id="benContinueExploreBtn">
-
                 TIẾP TỤC KHÁM PHÁ
-
             </button>
-
         </div>
-
     </div>
-
 </div>
-<!-- ===============================
-     GAME DINH ĐỘC LẬP
-================================ -->
-
 <div class="history-game" id="dinhGame">
-
     <div class="game-box">
-
-        <!-- NÚT ĐÓNG -->
-
         <button
             class="game-close"
             id="dinhGameClose"
             title="Thoát game">
-
             <svg viewBox="0 0 24 24">
                 <path d="M6 6l12 12"></path>
                 <path d="M18 6L6 18"></path>
             </svg>
-
         </button>
-
-
-        <!-- ==========================
-             TIÊU ĐỀ
-        =========================== -->
-
         <div class="game-header">
-
             <p class="game-eyebrow">
                 GÓC TƯ LIỆU LỊCH SỬ
             </p>
-
             <h1>
                 KHÔI PHỤC TRANG SỬ
             </h1>
-
             <p>
                 Hãy ghép lại 9 mảnh báo để khôi phục trang sử.
             </p>
-
         </div>
-
-
-        <!-- ==========================
-             KHU VỰC GAME
-        =========================== -->
-
         <div
             class="newspaper-game"
             id="newspaperGame">
-
-
-            <!-- ======================
-                 BẢNG GHÉP 3 × 3
-            ======================= -->
-
             <div
                 class="newspaper-slots"
                 id="newspaperSlots">
-
                 <div
                     class="newspaper-slot"
                     data-slot="0">
                 </div>
-
                 <div
                     class="newspaper-slot"
                     data-slot="1">
                 </div>
-
                 <div
                     class="newspaper-slot"
                     data-slot="2">
                 </div>
-
                 <div
                     class="newspaper-slot"
                     data-slot="3">
                 </div>
-
                 <div
                     class="newspaper-slot"
                     data-slot="4">
                 </div>
-
                 <div
                     class="newspaper-slot"
                     data-slot="5">
                 </div>
-
                 <div
                     class="newspaper-slot"
                     data-slot="6">
                 </div>
-
                 <div
                     class="newspaper-slot"
                     data-slot="7">
                 </div>
-
                 <div
                     class="newspaper-slot"
                     data-slot="8">
                 </div>
-
             </div>
-
-
-            <!-- ======================
-                 9 MẢNH BÁO
-                 
-                 JS sẽ tự tạo lại 9 mảnh
-                 nên KHÔNG cần ghi img
-                 ở đây.
-            ======================= -->
-
             <div
                 class="newspaper-pieces"
                 id="newspaperPieces">
             </div>
-
-
         </div>
-
-
-        <!-- ==========================
-             TIẾN ĐỘ
-        =========================== -->
-
         <div class="game-progress">
-
             <span>
                 MẢNH ĐÃ GHÉP:
             </span>
-
             <strong id="newspaperProgress">
                 0 / 9
             </strong>
-
         </div>
-
-
-        <!-- ==========================
-             THÔNG BÁO
-        =========================== -->
-
         <div
             class="game-message"
             id="dinhGameMessage">
-
             Kéo từng mảnh báo vào vị trí phù hợp.
-
         </div>
-
-
-        <!-- ==========================
-             NÚT KIỂM TRA
-        =========================== -->
-
         <button
     class="check-game-btn"
     id="checkNewspaperBtn"
-    disabled
->
+    disabled>
     KIỂM TRA
 </button>
-
-
     </div>
-
 </div>
-
-
-<!-- ===============================
-     CÂU CHUYỆN LỊCH SỬ DINH
-================================ -->
-
 <div
     class="history-story"
     id="dinhHistory">
-
     <div class="story-box">
-
-        <p class="game-eyebrow">
-            CÂU CHUYỆN LỊCH SỬ
-        </p>
-
         <h1>
             CHIẾN DỊCH HỒ CHÍ MINH
         </h1>
-
         <div class="history-story-content">
-
             <p>
                 Ngày 30/4/1975, Chiến dịch Hồ Chí Minh toàn thắng.
                 Quân Giải phóng tiến vào Dinh Độc Lập, đánh dấu
                 sự kết thúc của chiến tranh và mở ra một thời kỳ
                 mới trong lịch sử dân tộc Việt Nam.
             </p>
-
             <p>
                 Những hình ảnh và tư liệu về thời khắc này trở thành
                 một phần quan trọng của ký ức lịch sử Việt Nam.
             </p>
-
         </div>
-
         <div class="history-story-actions">
-
             <button id="dinhReplayBtn">
                 CHƠI LẠI
             </button>
-
             <button id="dinhContinueBtn">
                 CHỨNG KIẾN LỊCH SỬ
             </button>
-
         </div>
-
     </div>
-
 </div>
-<!-- ===============================
-     VIDEO LỊCH SỬ
-================================ -->
-
 <div class="history-video" id="dinhVideo">
-
     <div class="video-box">
-
         <button
             class="video-close"
             id="dinhVideoClose"
             title="Đóng">
-
             <svg viewBox="0 0 24 24">
                 <path d="M6 6l12 12"></path>
                 <path d="M18 6L6 18"></path>
             </svg>
-
         </button>
-
-        <p class="game-eyebrow">
-            CHỨNG KIẾN LỊCH SỬ
-        </p>
-
         <h1>
             CHIẾN DỊCH HỒ CHÍ MINH
         </h1>
-
         <div class="video-container">
-
             <video
                 id="dinhHistoryVideo"
                 controls
                 playsinline>
-
                 <source
                     src="lich-su.mp4"
                     type="video/mp4">
-
                 Trình duyệt của bạn không hỗ trợ video.
-
             </video>
-
         </div>
         <div class="video-source">
     Nguồn: Tiktok
 </div>
-
     </div>
-
 </div>
-<!-- ===============================
-     NOTICE HOÀN THÀNH DINH ĐỘC LẬP
-================================ -->
-
 <div class="dinh-complete-notice" id="dinhCompleteNotice">
-
     <div class="dinh-complete-box">
-
-        <p class="game-eyebrow">
-            CHẶNG KHÁM PHÁ HOÀN THÀNH
-        </p>
-
         <h1>
             BẠN ĐÃ HOÀN THÀNH CHẶNG<br>
             DINH ĐỘC LẬP
         </h1>
-
         <p class="dinh-complete-text">
             Bạn đã hoàn thành thử thách và chứng kiến
             một dấu mốc quan trọng của lịch sử Việt Nam.
         </p>
-
         <div class="dinh-complete-actions">
-
             <button id="dinhExploreAgainBtn">
                 KHÁM PHÁ LẠI
             </button>
-
             <button id="dinhContinueExploreBtn">
                 TIẾP TỤC KHÁM PHÁ
             </button>
-
         </div>
-
     </div>
-
 </div>
-    <!-- ===============================
-         GOOGLE MAPS
-    ================================ -->
-
     <div
         class="modal-overlay"
         id="mapsModal">
-
         <div class="map-box">
-
             <button
                 class="close-modal"
                 id="closeMaps"
                 title="Đóng">
-
                 <svg viewBox="0 0 24 24">
                     <path d="M6 6l12 12"></path>
                     <path d="M18 6L6 18"></path>
                 </svg>
-
             </button>
-
-
             <div class="map-header">
-
                 <div class="notice-icon">
-
                     <svg viewBox="0 0 24 24">
-
                         <path
                             d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z">
                         </path>
-
                         <circle
                             cx="12"
                             cy="9"
                             r="2.5">
                         </circle>
-
                     </svg>
-
                 </div>
-
-
                 <div>
-
                     <h2>BẢN ĐỒ THAM QUAN</h2>
-
                     <p>
                         Khám phá vị trí các địa danh lịch sử
                     </p>
-
                 </div>
-
             </div>
-
-
             <div class="map-container">
-
                 <iframe
                     id="googleMap"
                     src="https://www.google.com/maps?q=Dinh+Độc+Lập,+Ho+Chi+Minh+City&output=embed"
                     loading="lazy"
                     allowfullscreen>
                 </iframe>
-
             </div>
-
         </div>
-
     </div>
-
-
-    <!-- ===============================
-         BẢNG THÔNG TIN
-    ================================ -->
-
     <div
         class="info-modal"
         id="infoModal">
-
         <div class="info-paper">
-
             <button
                 class="info-close"
                 id="closeInfo">
-
                 <svg viewBox="0 0 24 24">
                     <path d="M6 6l12 12"></path>
                     <path d="M18 6L6 18"></path>
                 </svg>
-
             </button>
-
-
             <div class="paper-header">
-
                 <p class="paper-small-title">
                     KHẮP NẺO NON SÔNG
                 </p>
-
                 <h1 id="infoTitle">
                     DINH ĐỘC LẬP
                 </h1>
-
                 <div class="paper-line"></div>
-
                 <p class="paper-date">
                     GÓC TƯ LIỆU LỊCH SỬ
                 </p>
-
             </div>
-
-
             <div
                 class="paper-content"
                 id="infoContent">
             </div>
-
         </div>
-
     </div>
-
-
-    <!-- ===============================
-         JAVASCRIPT
-    ================================ -->
-
     <script src="script.js"></script>
+<style>
+.KNNSQuizBox,
+.KNNSQuizAnswer,
+.KNNSQuizProgress,
+.KNNSQuizSub,
+.KNNSQuizQuestion,
+.KNNSQuizNext,
+.KNNSQuizResult,
+.KNNSQuizRetry {
+    font-family: "Noto Sans", sans-serif;
+}
+.KNNSQuizTitle,
+.KNNSQuizResult h2,
+#KNNSQuizClose {
+    font-family: "DT Phudu", sans-serif;
+}
+#KNNSQuizButton {
+    position: fixed;
+    right: 12px;
+    top: 5%;
+    transform: translateY(-50%);
+    z-index: 999999999;
+    width: 58px;
+    height: 58px;
+    border: 2px solid #a94f42;
+    border-radius: 50%;
+    background: rgba(245,236,217,.96);
+    color: #762c27;
+    font-family: "DT Phudu", sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0,0,0,.22);
+    transition: .25s ease;
+}
+#KNNSQuizButton:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+#KNNSQuizModal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999999999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(30,20,15,.72);
+}
+#KNNSQuizModal.show {
+    display: flex;
+}
+.KNNSQuizBox {
+    position: relative;
+    width: min(850px, 94vw);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 35px;
+    background: #f5ecd9;
+    border: 3px solid #a94f42;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.4);
+}
+#KNNSQuizClose {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    border: none;
+    background: none;
+    color: #762c27;
+    font-size: 32px;
+    cursor: pointer;
+}
+.KNNSQuizTitle {
+    margin: 0;
+    text-align: center;
+    color: #762c27;
+    font-size: 28px;
+    font-weight: 900;
+}
+.KNNSQuizSub {
+    margin: 5px 0 25px;
+    text-align: center;
+    color: #a87935;
+    font-size: 13px;
+    font-weight: bold;
+}
+.KNNSQuizProgress {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #8f4036;
+    font-weight: bold;
+}
+.KNNSQuizQuestion {
+    margin-bottom: 20px;
+    color: #3d2925;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+.KNNSQuizAnswer {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 14px 17px;
+    border: 2px solid #c28a78;
+    border-radius: 12px;
+    background: #fffaf1;
+    color: #3d2925;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .2s;
+}
+.KNNSQuizAnswer:hover {
+    background: #f1dfc4;
+}
+.KNNSQuizAnswer.selected {
+    background: #a94f42;
+    border-color: #762c27;
+    color: white;
+}
+.KNNSQuizNext {
+    display: block;
+    margin: 25px auto 0;
+    padding: 13px 35px;
+    border: none;
+    border-radius: 10px;
+    background: #8f4036;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.KNNSQuizNext:hover {
+    background: #762c27;
+}
+.KNNSQuizResult {
+    text-align: center;
+}
+.KNNSQuizResult h2 {
+    color: #762c27;
+    font-size: 30px;
+}
+.KNNSQuizScore {
+    margin: 20px;
+    color: #a87935;
+    font-size: 58px;
+    font-weight: 900;
+}
+.KNNSQuizRetry {
+    padding: 13px 30px;
+    border: none;
+    border-radius: 10px;
+    background: #8f4036;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+@media (max-width: 800px) {
+    #KNNSQuizButton {
+        right: 10px;
+        width: 50px;
+        height: 50px;
+        font-size: 9px;
+    }
+    .KNNSQuizBox {
+        width: 95vw;
+        padding: 28px 18px;
+    }
+    .KNNSQuizTitle {
+        font-size: 23px;
+    }
+    .KNNSQuizQuestion {
+        font-size: 18px;
+    }
+    .KNNSQuizAnswer {
+        font-size: 15px;
+    }
+}
+</style>
+<button
+    id="KNNSQuizButton"
+    type="button"
+    onclick="KNNS_OpenQuiz()">
+    QUIZ
+</button>
+<div id="KNNSQuizModal">
+    <div class="KNNSQuizBox">
+        <button
+            id="KNNSQuizClose"
+            type="button"
+            onclick="KNNS_CloseQuiz()">
+            ×
+        </button>
+        <div id="KNNSQuizContent"></div>
+    </div>
+</div>
+<script>
+const KNNS_QUESTIONS = [
+{
+q:"Dinh Độc Lập mới được khởi công xây dựng vào ngày nào?",
+a:["27/02/1962","01/07/1962","31/10/1966","30/04/1975"],
+c:1
+},
 
+{
+q:"Ai là kiến trúc sư thiết kế Dinh Độc Lập mới?",
+a:["Huỳnh Tấn Phát","Trần Văn Học","Ngô Viết Thụ","Nguyễn Văn Ninh"],
+c:2
+},
+
+{
+q:"Dinh Độc Lập mới được khánh thành vào ngày nào?",
+a:["01/07/1962","02/11/1963","31/10/1966","30/04/1975"],
+c:2
+},
+
+{
+q:"Ngày 27/02/1962, Dinh Độc Lập bị hư hại nặng do sự kiện nào?",
+a:["Một trận hỏa hoạn","Một vụ ném bom","Một trận động đất","Một vụ phá dỡ"],
+c:1
+},
+
+{
+q:"Dinh Độc Lập mới được xây dựng trên nền của công trình nào?",
+a:["Dinh Norodom cũ","Dinh Gia Long","Nhà hát Thành phố","Bưu điện Sài Gòn"],
+c:0
+},
+
+{
+q:"Ngày 30/04/1975, xe tăng mang số hiệu 843 húc vào cổng nào của Dinh Độc Lập?",
+a:["Cổng chính","Cổng phụ","Cổng phía sau","Cổng bên phải"],
+c:1
+},
+
+{
+q:"Xe tăng mang số hiệu nào húc tung cổng chính Dinh Độc Lập?",
+a:["843","203","390","230"],
+c:2
+},
+
+{
+q:"Đúng 11 giờ 30 phút ngày 30/04/1975, ai là người kéo lá cờ lên nóc Dinh Độc Lập?",
+a:["Vũ Đăng Toàn","Nguyễn Văn Tập","Bùi Quang Thận","Dương Văn Minh"],
+c:2
+},
+
+{
+q:"Dinh Độc Lập được công nhận là Di tích lịch sử – văn hóa quốc gia vào năm nào?",
+a:["1975","1976","1980","2009"],
+c:1
+},
+
+{
+q:"Dinh Độc Lập được Thủ tướng Chính phủ xếp hạng Di tích quốc gia đặc biệt vào năm nào?",
+a:["1976","1980","2009","2015"],
+c:2
+},
+
+{
+q:"Nguyễn Tất Thành rời Bến Nhà Rồng ra đi tìm đường cứu nước vào ngày nào?",
+a:["19/05/1890","05/06/1911","02/09/1945","30/04/1975"],
+c:1
+},
+
+{
+q:"Khi bắt đầu làm việc trên tàu Amiral Latouche Tréville, Nguyễn Tất Thành sử dụng tên gì?",
+a:["Nguyễn Ái Quốc","Nguyễn Sinh Cung","Văn Ba","Hồ Chí Minh"],
+c:2
+},
+
+{
+q:"Nguyễn Tất Thành bắt đầu làm công việc gì trên tàu Amiral Latouche Tréville?",
+a:["Thợ máy","Thuyền trưởng","Phụ bếp","Hoa tiêu"],
+c:2
+},
+
+{
+q:"Con tàu đưa Nguyễn Tất Thành rời Sài Gòn ngày 05/06/1911 có tên là gì?",
+a:["Jeanne d’Arc","Amiral Latouche Tréville","Courbet","Tonkin"],
+c:1
+},
+
+{
+q:"Trưa ngày 02/06/1911, tàu Amiral Latouche Tréville từ đâu cập cảng Sài Gòn?",
+a:["Hải Phòng","Đà Nẵng","Hà Nội","Huế"],
+c:0
+},
+
+{
+q:"Ngày 03/06/1911, Nguyễn Tất Thành chính thức xuống tàu và bắt đầu làm công việc gì?",
+a:["Thủy thủ","Thợ máy","Phụ bếp","Hoa tiêu"],
+c:2
+},
+
+{
+q:"Ngày 05/06/1911, tàu Amiral Latouche Tréville rời Sài Gòn với bao nhiêu thủy thủ trên tàu?",
+a:["52","62","72","82"],
+c:2
+},
+
+{
+q:"Ngày 08/06/1911, tàu Amiral Latouche Tréville cập cảng Keppel của quốc gia nào?",
+a:["Pháp","Singapore","Sri Lanka","Ai Cập"],
+c:1
+},
+
+{
+q:"Ngày 06/07/1911, tàu Amiral Latouche Tréville cập cảng Marseille thuộc quốc gia nào?",
+a:["Anh","Pháp","Ý","Tây Ban Nha"],
+c:1
+},
+
+{
+q:"Ngày 15/07/1911, tàu Amiral Latouche Tréville cập cảng nào ở phía Bắc nước Pháp?",
+a:["Le Havre","Lyon","Bordeaux","Nice"],
+c:0
+},
+
+{
+q:"Địa đạo Củ Chi hình thành trong thời kỳ kháng chiến chống thực dân Pháp, khoảng năm nào?",
+a:["1930","1945","1948","1954"],
+c:2
+},
+
+{
+q:"Hệ thống địa đạo được xây dựng sớm nhất tại hai xã nào?",
+a:["Bến Dược và Bến Đình","Tân Phú Trung và Phước Vĩnh An","Nhuận Đức và An Nhơn Tây","Trung Lập Thượng và Trung Lập Hạ"],
+c:1
+},
+
+{
+q:"Lúc đầu, các đoạn địa đạo được sử dụng để làm gì?",
+a:["Sản xuất lương thực","Giao thương","Giấu tài liệu, trú ém cán bộ","Làm nơi họp chợ"],
+c:2
+},
+
+{
+q:"Trong giai đoạn kháng chiến chống Mỹ, hệ thống địa đạo Củ Chi được như thế nào?",
+a:["Bỏ hoang hoàn toàn","Gia cố và mở rộng","Phá bỏ để xây dựng công trình mới","Chuyển toàn bộ sang khu vực khác"],
+c:1
+},
+
+{
+q:"Từ năm nào Khu ủy và Bộ Chỉ huy Quân khu Sài Gòn – Gia Định chọn Củ Chi làm địa bàn hoạt động?",
+a:["1954","1961","1966","1975"],
+c:1
+},
+
+{
+q:"Hệ thống địa đạo Củ Chi có đặc điểm nào sau đây?",
+a:["Chỉ gồm một đường hầm duy nhất","Gồm hệ thống đường hầm nhiều tầng","Chỉ được xây dựng trên mặt đất","Chỉ gồm các công sự bằng gỗ"],
+c:1
+},
+
+{
+q:"Công trình nào sau đây có trong hệ thống Địa đạo Củ Chi?",
+a:["Bếp Hoàng Cầm","Nhà hát","Tháp chuông","Cung điện"],
+c:0
+},
+
+{
+q:"Địa đạo Bến Đình là một bộ phận của di tích nào?",
+a:["Địa đạo Củ Chi","Địa đạo Vĩnh Mốc","Địa đạo Tam Giác Sắt","Địa đạo Phước Vĩnh An"],
+c:0
+},
+
+{
+q:"Trong hệ thống Địa đạo Bến Đình có công trình nào sau đây?",
+a:["Lỗ thông hơi","Sân vận động","Nhà hát","Bưu điện"],
+c:0
+},
+
+{
+q:"Địa đạo Củ Chi được Thủ tướng Chính phủ xếp hạng là Di tích quốc gia đặc biệt vào năm nào?",
+a:["2009","2010","2015","2020"],
+c:2
+}
+];
+let KNNS_Current = 0;
+let KNNS_Score = 0;
+let KNNS_Selected = null;
+function KNNS_OpenQuiz(){
+    document
+        .getElementById("KNNSQuizModal")
+        .classList.add("show");
+    KNNS_Current = 0;
+    KNNS_Score = 0;
+    KNNS_Selected = null;
+    KNNS_ShowQuestion();
+}
+function KNNS_CloseQuiz(){
+    document
+        .getElementById("KNNSQuizModal")
+        .classList.remove("show");
+}
+function KNNS_ShowQuestion(){
+    const question =
+        KNNS_QUESTIONS[KNNS_Current];
+    KNNS_Selected = null;
+    let html = `
+        <h1 class="KNNSQuizTitle">
+            KHÁM PHÁ LỊCH SỬ
+        </h1>
+        <div class="KNNSQuizProgress">
+            CÂU ${KNNS_Current + 1} / 30
+        </div>
+        <div class="KNNSQuizQuestion">
+            ${question.q}
+        </div>
+    `;
+    question.a.forEach((answer,index)=>{
+        html += `
+            <button
+                type="button"
+                class="KNNSQuizAnswer"
+                onclick="KNNS_SelectAnswer(${index},this)"
+            >
+                ${String.fromCharCode(65 + index)}.
+                ${answer}
+            </button>
+        `;
+    });
+    html += `
+        <button
+            type="button"
+            class="KNNSQuizNext"
+            onclick="KNNS_NextQuestion()"
+        >
+            ${
+                KNNS_Current === 29
+                ? "NỘP BÀI"
+                : "TIẾP THEO →"
+            }
+        </button>
+    `;
+    document
+        .getElementById("KNNSQuizContent")
+        .innerHTML = html;
+}
+function KNNS_SelectAnswer(index,button){
+    KNNS_Selected = index;
+    document
+        .querySelectorAll(".KNNSQuizAnswer")
+        .forEach(btn=>{
+            btn.classList.remove("selected");
+        });
+    button.classList.add("selected");
+}
+function KNNS_NextQuestion(){
+    if(KNNS_Selected === null){
+        alert("Hãy chọn một đáp án trước nhé!");
+        return;
+    }
+    if(
+        KNNS_Selected ===
+        KNNS_QUESTIONS[KNNS_Current].c
+    ){
+        KNNS_Score++;
+    }
+    KNNS_Current++;
+    if(KNNS_Current < KNNS_QUESTIONS.length){
+        KNNS_ShowQuestion();
+    }else{
+        KNNS_ShowResult();
+    }
+}
+function KNNS_ShowResult(){
+    const percent =
+        Math.round(
+            KNNS_Score / 30 * 100
+        )
+    document
+        .getElementById("KNNSQuizContent")
+        .innerHTML = `
+            <div class="KNNSQuizResult">
+                <h2>
+                    HOÀN THÀNH HÀNH TRÌNH!
+                </h2>
+                <p>
+                    Bạn đã hoàn thành 30 câu hỏi.
+                </p>
+                <div class="KNNSQuizScore">
+                    ${KNNS_Score}/30
+                </div>
+                <p>
+                    Đúng ${percent}% câu hỏi
+                </p>
+                <button
+                    type="button"
+                    class="KNNSQuizRetry"
+                    onclick="KNNS_OpenQuiz()"
+                >
+                    LÀM LẠI
+                </button>
+            </div>
+        `;
+}
+document.addEventListener("keydown",function(e){
+    if(e.key === "Escape"){
+        KNNS_CloseQuiz();
+    }
+});
+</script>
 </body>
-
 </html>
