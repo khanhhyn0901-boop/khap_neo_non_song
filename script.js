@@ -2616,8 +2616,6 @@ document.addEventListener("click", function (e) {
 
                 <hr>
 
-                <h3>Video tư liệu về Bót Dây Thép</h3>
-
                 <div style="width:100%; margin:16px 0;">
                     <video
                         controls
