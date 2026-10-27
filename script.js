@@ -350,7 +350,23 @@ const scenes = {
                 <path d="M9 14h6"></path>
             </svg>
         `
+    },
+    bot: {
+        name: "BÓT DÂY THÉP",
+        image: "bot.png",
+        maps:
+            "https://www.google.com/maps/search/?api=1&query=Bot+Day+Thep+Long An+Vietnam",
+        icon: `
+            <svg viewBox="0 0 24 24">
+                <path d="M4 21V8l8-5 8 5v13"></path>
+                <path d="M2 21h20"></path>
+                <path d="M9 21v-7h6v7"></path>
+                <path d="M8 10h2"></path>
+                <path d="M14 10h2"></path>
+            </svg>
+        `
     }
+
 };
 console.log("SCRIPT ĐÃ CHẠY");
 console.log({
@@ -462,6 +478,11 @@ function setupDoors() {
                     door.classList.contains("door3")
                 ) {
                     openScene("diaDao");
+                }
+                else if (
+                     door.classList.contains("door4")
+                ) {
+                    openScene("bot");
                 }
             });
         });
@@ -821,6 +842,11 @@ function goBackToLobby() {
             class="door door3"
             data-name="ĐỊA ĐẠO CỦ CHI"
             alt="Địa đạo Củ Chi">
+        <img
+            src="bot.png"
+            class="door door4"
+            data-name="BÓT DÂY THÉP"
+            alt="Bót Dây Thép">
     `;
     setupDoors();
     updateTaskbar();
@@ -2541,3 +2567,78 @@ if (dinhHamHotspot) {
             });
     });
 }
+document.addEventListener("click", function (e) {
+    const hotspot = e.target.closest("#botHotspot");
+    if (!hotspot) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (infoTitle) {
+        infoTitle.textContent = "BÓT DÂY THÉP";
+    }
+
+    if (infoContent) {
+        infoContent.innerHTML = `
+            <div class="historical-info">
+                <p><strong>Tên di tích:</strong> Bót Dây Thép</p>
+                <p><strong>Địa điểm:</strong> Đường Lê Văn Việt, phường Tăng Nhơn Phú, TP Thủ Đức, TP.HCM.</p>
+                <p><strong>Loại hình:</strong> Di tích lịch sử cấp quốc gia.</p>
+                <p><strong>Ngày công nhận:</strong> 18/01/1993, theo Quyết định số 57-VH/QĐ.</p>
+
+                <hr>
+
+                <h3>Dấu tích lịch sử giữa lòng Thủ Đức</h3>
+
+                <h4>Một công trình mang dấu ấn lịch sử</h4>
+                <p>
+                    Nằm trên đường Lê Văn Việt, Bót Dây Thép là di tích lịch sử gắn liền
+                    với những năm tháng đấu tranh của nhân dân vùng Tăng Nhơn Phú.
+                    Công trình ban đầu gồm ba căn nhà biệt lập, được thực dân Pháp sử dụng
+                    làm trạm thu phát thông tin liên lạc giữa Việt Nam và Pháp.
+                </p>
+
+                <h4>Những năm tháng kháng chiến</h4>
+                <p>
+                    Trong giai đoạn 1945–1947, nơi đây trở thành địa điểm giam giữ nhiều
+                    chiến sĩ cách mạng và người dân. Những mất mát diễn ra tại Bót Dây Thép
+                    đã trở thành một phần ký ức đau thương trong lịch sử đấu tranh của
+                    người dân địa phương.
+                </p>
+
+                <h4>Di tích của ký ức và sự tri ân</h4>
+                <p>
+                    Ngày 18 tháng 1 năm 1993, Bót Dây Thép được công nhận là di tích lịch sử
+                    cấp quốc gia. Ngày nay, di tích mang ý nghĩa giáo dục truyền thống,
+                    giúp thế hệ trẻ tìm hiểu lịch sử quê hương và trân trọng những hy sinh
+                    của các thế hệ đi trước.
+                </p>
+
+                <hr>
+
+                <h3>Video tư liệu về Bót Dây Thép</h3>
+
+                <div style="width:100%; margin:16px 0;">
+                    <video
+                        controls
+                        playsinline
+                        preload="metadata"
+                        style="display:block; width:100%; height:auto; min-height:220px; background:#000; border-radius:10px;"
+                    >
+                        <source src="./bot.mp4" type="video/mp4">
+                        Trình duyệt của bạn không hỗ trợ phát video.
+                    </video>
+                    <p style="font-size:13px; margin-top:8px;">
+                        Video tư liệu về di tích Bót Dây Thép.
+                    </p>
+                </div>
+            </div>
+        `;
+
+        infoContent.scrollTop = 0;
+    }
+
+    if (infoModal) {
+        infoModal.classList.add("show");
+    }
+});
