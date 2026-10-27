@@ -3764,3 +3764,26 @@ body.fade-out {
     background: #000;
     border: 2px solid #a87935;
 }
+.bot-hotspot {
+    position: absolute;
+    left: 93.5%;
+    top: 35%;
+    width: 9%;
+    height: 27%;
+
+    transform: translate(-50%, -50%);
+    transition: none !important;
+
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+    z-index: 999;
+}
+
+.bot-hotspot:hover {
+    transform: translate(-50%, -50%) !important;
+    background: transparent;
+    border: none;
+}
