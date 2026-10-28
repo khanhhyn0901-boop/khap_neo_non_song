@@ -2590,7 +2590,6 @@ document.addEventListener("click", function (e) {
 
                 <h3>Dấu tích lịch sử giữa lòng Thủ Đức</h3>
 
-                <h4>Một công trình mang dấu ấn lịch sử</h4>
                 <p>
                     Nằm trên đường Lê Văn Việt, Bót Dây Thép là di tích lịch sử gắn liền
                     với những năm tháng đấu tranh của nhân dân vùng Tăng Nhơn Phú.
@@ -2598,15 +2597,13 @@ document.addEventListener("click", function (e) {
                     làm trạm thu phát thông tin liên lạc giữa Việt Nam và Pháp.
                 </p>
 
-                <h4>Những năm tháng kháng chiến</h4>
                 <p>
                     Trong giai đoạn 1945–1947, nơi đây trở thành địa điểm giam giữ nhiều
                     chiến sĩ cách mạng và người dân. Những mất mát diễn ra tại Bót Dây Thép
                     đã trở thành một phần ký ức đau thương trong lịch sử đấu tranh của
                     người dân địa phương.
                 </p>
-
-                <h4>Di tích của ký ức và sự tri ân</h4>
+                
                 <p>
                     Ngày 18 tháng 1 năm 1993, Bót Dây Thép được công nhận là di tích lịch sử
                     cấp quốc gia. Ngày nay, di tích mang ý nghĩa giáo dục truyền thống,
@@ -2627,7 +2624,7 @@ document.addEventListener("click", function (e) {
                         Trình duyệt của bạn không hỗ trợ phát video.
                     </video>
                     <p style="font-size:13px; margin-top:8px;">
-                        Video tư liệu về di tích Bót Dây Thép.
+                        Nguồn: Trung tâm Cung ứng dịch vụ công P. Tăng Nhơn Phú.
                     </p>
                 </div>
             </div>
