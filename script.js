@@ -2624,7 +2624,7 @@ document.addEventListener("click", function (e) {
                         Trình duyệt của bạn không hỗ trợ phát video.
                     </video>
                     <p style="font-size:13px; margin-top:8px;">
-                        Nguồn: Trung tâm Cung ứng dịch vụ công P. Tăng Nhơn Phú.
+                        Nguồn: Trung tâm Cung ứng dịch vụ công P.Tăng Nhơn Phú.
                     </p>
                 </div>
             </div>
